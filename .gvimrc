@@ -10,6 +10,9 @@ set guioptions-=T
 let g:inkpot_black_background = 1
 colorscheme inkpot
 
-set transparency=15
+set transparency=10
+
+set gfn=Monaco:h10
+set noanti
 
 

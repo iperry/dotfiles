@@ -1,3 +1,4 @@
+alias ls='ls -G'
 alias rm='rm -i'
 alias mv='mv -i'
 alias grep='grep --color=auto'
@@ -5,6 +6,8 @@ alias lsd='ls -d */'
 alias saved='echo `pwd` > ~/.savedir'
 alias showd='cat ~/.savedir'
 alias god='cd `cat ~/.savedir`'
+alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
+alias vim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 
 export EDITOR=vim
 
