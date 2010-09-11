@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/perry/work/leaflabs/trunk/bootloader/flash'
+let g:netrw_dirhist_2='/home/perry/work/leaf/test/.git'
+let g:netrw_dirhist_3='/home/perry/work/leaf/libmaple/stm32conf/src/libcs3-lanchon-stm32'
+let g:netrw_dirhist_4='/etc/udev/rules.d'
