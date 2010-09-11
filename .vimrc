@@ -104,12 +104,6 @@ endfunction
 " map f4 to toggle curly brace closing
 nmap <F4> :call ToggleCurlyBraceClose()<CR>
 
-
-" remove scrollbar, menubar, and toolbar
-set guioptions-=r
-set guioptions-=m
-set guioptions-=T
-
 " c commenting macro
 inoremap <F2> <ESC>0i/**/<ESC>==lli<SPACE><SPACE><SPACE><ESC>hi
 noremap <F2> <ESC>0i/**/<ESC>==lli<SPACE><SPACE><SPACE><ESC>hi
