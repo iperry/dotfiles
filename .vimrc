@@ -6,7 +6,6 @@
 " nmap maps keys in normal mode only
 " omap maps keys in operator-pending mode only
 " vmap maps keys in visual mode only
-"
 
 " Keep it sane.
 set nocp
@@ -129,4 +128,11 @@ set nobackup
 set nowb
 set noswapfile
 
+" highlight whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
