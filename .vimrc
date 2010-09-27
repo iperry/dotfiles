@@ -13,9 +13,9 @@ set cinoptions=:0,p0,t0
 set cinwords=if,else,while,do,for,switch,case
 set formatoptions=tcqr
 
-" 3 space tabs
+" 4 space tabs
 set tabstop=8
-set shiftwidth=3
+set shiftwidth=4
 set expandtab
 set smarttab
 
