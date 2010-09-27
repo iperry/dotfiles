@@ -141,4 +141,5 @@ defaults = defaultConfig {
    keys = myKeys,
    layoutHook = myLayouts,
    startupHook = setWMName "LG3D",
-   logHook = myLogHook }
+   logHook = myLogHook,
+   focusFollowsMouse = False}
