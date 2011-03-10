@@ -103,9 +103,13 @@ endfunction
 " map f4 to toggle curly brace closing
 nmap <F4> :call ToggleCurlyBraceClose()<CR>
 
-" c commenting macro
-inoremap <F2> <ESC>0i/**/<ESC>==lli<SPACE><SPACE><SPACE><ESC>hi
-noremap <F2> <ESC>0i/**/<ESC>==lli<SPACE><SPACE><SPACE><ESC>hi
+" single line c commenting macro
+inoremap <F2> <ESC>0i/**/<ESC>==lli<SPACE><SPACE><ESC>i
+noremap <F2> <ESC>0i/**/<ESC>==lli<SPACE><SPACE><ESC>i
+
+" multiline c commenting macro
+inoremap <F3> <ESC>0i/*<ESC>==A<CR><CR><BS>/<ESC>kA<SPACE>
+noremap <F3> <ESC>0i/*<ESC>==A<CR><CR><BS>/<ESC>kA<SPACE>
 
 " use f11 to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F10>
