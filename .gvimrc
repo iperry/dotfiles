@@ -14,5 +14,6 @@ set transparency=10
 
 set gfn=Monaco:h10
 set noanti
+set clipboard=unnamed
 
 
