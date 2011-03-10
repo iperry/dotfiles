@@ -5,12 +5,10 @@ alias lsd='ls -d */'
 alias saved='echo `pwd` > ~/.savedir'
 alias showd='cat ~/.savedir'
 alias god='cd `cat ~/.savedir`'
-alias ls='ls --color=auto'
 
 # mac
-# alias ls='ls -G'
-# alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
-# alias vim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
+alias ls='ls -G'
+alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 
 export EDITOR=vim
 
