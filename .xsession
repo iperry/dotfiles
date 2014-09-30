@@ -4,4 +4,5 @@ trayer --edge top --align right --SetDockType true --SetPartialStrut true --expa
 nm-applet &
 xcompmgr &
 xscreensaver -no-splash &
+dropbox start
 /usr/bin/xmonad
