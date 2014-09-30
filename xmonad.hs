@@ -92,15 +92,6 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
-myManageHook = composeAll
-    [ className =? "MPlayer"         --> doFloat
-    , className =? "amarokapp"       --> doFloat
-    , className =? "stalonetray"     --> doFloat
-    , className =? "Gimp"            --> doFloat
-    , className =? "qemu"            --> doFloat
-    , isFullscreen --> (doF W.focusDown <+> doFullFloat)
-    ]
-
 myBar = "xmobar"
 myPP = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">" }
 -- Key binding to toggle the gap for the bar.
@@ -113,7 +104,7 @@ defaults = defaultConfig {
    terminal           = "gnome-terminal",
    normalBorderColor  = "#000000",
    focusedBorderColor = "#308C96",
-   manageHook = myManageHook,
+   manageHook = manageDocks <+> manageHook defaultConfig,
    modMask = mod4Mask,
    keys = myKeys,
    layoutHook = myLayouts,
