@@ -214,4 +214,7 @@ if executable('ag')
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
+
+  " do not limit scan
+  let g:ctrlp_max_files = 0
 endif
