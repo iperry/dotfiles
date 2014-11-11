@@ -5,4 +5,5 @@ nm-applet &
 xcompmgr &
 xscreensaver -no-splash &
 dropbox start
+eval `ssh-agent`
 /usr/bin/xmonad
