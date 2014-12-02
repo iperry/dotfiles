@@ -17,7 +17,10 @@
 [alias]
    ci = commit -v
    co = checkout
+   dp = diff --patience
+
 [merge]
    tool = meld
+
 [push]
 	default = tracking
