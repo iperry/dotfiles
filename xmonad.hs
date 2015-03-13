@@ -47,7 +47,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- launch a terminal
     [ ((modMask .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
     -- launch dmenu
-    , ((modMask,               xK_p     ), spawn "exe=`dmenu_run ` && eval \"exec $exe\"")
+    , ((modMask,               xK_p     ), spawn "dmenu_run")
     -- close focused window
     , ((modMask .|. shiftMask, xK_c     ), kill)
      -- Rotate through the available layout algorithms
