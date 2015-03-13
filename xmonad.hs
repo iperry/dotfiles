@@ -13,13 +13,30 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.NoBorders
 import XMonad.Hooks.ManageHelpers
+import XMonad.Layout.SubLayouts
+import XMonad.Layout.BoringWindows
+import XMonad.Layout.Tabbed
+import XMonad.Layout.Simplest
+import XMonad.Util.Themes
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 myNormalBorderColor  = "#1a1a1a"
 myFocusedBorderColor = "#33ccff"
-myLayouts = avoidStruts $ smartBorders $ windowNavigation $ ResizableTall 1 (3/100) (1/2) [] ||| noBorders Full
+
+myTabTheme = theme wfarrTheme
+
+myLayouts = configurableNavigation noNavigateBorders $
+    boringWindows $
+    smartBorders $
+    avoidStruts $
+    (enableTabs rtall ||| tabbed' ||| noBorders Full)
+  where
+    tabbed' = tabbed shrinkText myTabTheme
+    rtall = ResizableTall 1 (3/100) (1/2) []
+    enableTabs x = addTabs shrinkText myTabTheme $ subLayout [] Simplest x
+
 myWorkspaces = ["1:vim", "2:xterm", show 3, "4:docs", show 5, show 6,
                 "7:www", "8:email", "9:irc"]
 
@@ -42,6 +59,17 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
     -- Move focus to the next window
     , ((modMask,               xK_Tab   ), windows W.focusDown)
+    , ((modMask .|. shiftMask, xK_Tab   ), windows W.focusUp)
+
+    -- Merge groups
+    , ((modMask .|. mod1Mask, xK_h), sendMessage $ pullGroup L)
+    , ((modMask .|. mod1Mask, xK_l), sendMessage $ pullGroup R)
+    , ((modMask .|. mod1Mask, xK_k), sendMessage $ pullGroup U)
+    , ((modMask .|. mod1Mask, xK_j), sendMessage $ pullGroup D)
+    , ((modMask .|. mod1Mask, xK_m), withFocused (sendMessage . MergeAll))
+    , ((modMask .|. mod1Mask, xK_u), withFocused (sendMessage . UnMerge))
+    , ((modMask, xK_bracketleft), onGroup W.focusUp')
+    , ((modMask, xK_bracketright), onGroup W.focusDown')
 
     -- vim move window bindingsbindings
     , ((modMask,               xK_j     ), sendMessage $ Go D)
