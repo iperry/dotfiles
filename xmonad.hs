@@ -17,6 +17,8 @@ import XMonad.Hooks.ManageHelpers
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
+myNormalBorderColor  = "#1a1a1a"
+myFocusedBorderColor = "#33ccff"
 myLayouts = avoidStruts $ smartBorders $ windowNavigation $ ResizableTall 1 (3/100) (1/2) [] ||| noBorders Full
 myWorkspaces = ["1:vim", "2:xterm", show 3, "4:docs", show 5, show 6,
                 "7:www", "8:email", "9:irc"]
@@ -106,8 +108,8 @@ main = xmonad =<< statusBar myBar myPP toggleStrutsKey defaults
 defaults = defaultConfig {
    borderWidth        = 1,
    terminal           = "gnome-terminal",
-   normalBorderColor  = "#000000",
-   focusedBorderColor = "#308C96",
+   normalBorderColor  = myNormalBorderColor,
+   focusedBorderColor = myFocusedBorderColor,
    manageHook = manageDocks <+> manageHook defaultConfig,
    modMask = mod4Mask,
    keys = myKeys,
