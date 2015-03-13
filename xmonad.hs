@@ -130,7 +130,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 myBar = "xmobar"
 myPP = xmobarPP {
     ppCurrent = xmobarColor "#ff0066" "" . wrap "<" ">",
-    ppVisible = xmobarColor "#ff00ff" "" . wrap "(" ")"
+    ppVisible = xmobarColor "#ff00ff" "" . wrap "(" ")",
+    ppTitle = xmobarColor "green" ""
 }
 
 -- Key binding to toggle the gap for the bar.
