@@ -18,6 +18,8 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 myLayouts = avoidStruts $ smartBorders $ windowNavigation $ ResizableTall 1 (3/100) (1/2) [] ||| noBorders Full
+myWorkspaces = ["1:vim", "2:xterm", show 3, "4:docs", show 5, show 6,
+                "7:www", "8:email", "9:irc"]
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -111,5 +113,6 @@ defaults = defaultConfig {
    keys = myKeys,
    layoutHook = myLayouts,
    startupHook = setWMName "LG3D",
-   focusFollowsMouse = True
+   focusFollowsMouse = True,
+   workspaces = myWorkspaces
 }
