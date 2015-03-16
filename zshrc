@@ -27,6 +27,8 @@ autoload -U colors && colors
 # colors for ls
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad
+export LS_OPTIONS='--color=auto'
+ls --color=auto &> /dev/null && alias ls='ls --color=auto' ||
 
 # Colors for grep
 export GREP_OPTIONS='--color=auto'
@@ -96,6 +98,7 @@ alias glp='git log -p'
 alias gdc='git diff --cached'
 alias gau='git add -u :/'
 alias gca='git commit --amend'
+alias ga='git add'
 alias vim='nvim'
 
 # path
