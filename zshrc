@@ -104,6 +104,7 @@ alias gca='git commit --amend'
 alias ga='git add'
 alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias vim='nvim'
+alias vm='vim ~/.vimrc'
 
 # path
 path[1,0]=~/bin
