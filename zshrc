@@ -33,9 +33,9 @@ ls --color=auto &> /dev/null && alias ls='ls --color=auto' ||
 # Colors for grep
 export GREP_OPTIONS='--color=auto'
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[red]%}["
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[red]%}]%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}*"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[red]%}("
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[red]%})%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}:dirty"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
@@ -43,8 +43,10 @@ local user_host='%{$terminfo[bold]$fg[green]%}%n@%m%{$reset_color%}'
 local current_dir='%{$terminfo[bold]$fg[blue]%} %~%{$reset_color%}'
 local git_branch='$(git_prompt_info)'
 local prompt_cursor='[%{$terminfo[bold]$fg[cyan]%}$%{$reset_color%}]'
+local prompt_time='[%{$fg[yellow]%}%*${reset_color%}]'
 
-PROMPT=" ${user_host} ${current_dir} ${git_branch} ${prompt_cursor} "
+PROMPT="${prompt_time} ${user_host} ${current_dir} ${git_branch}
+${prompt_cursor} "
 
 # Completion
 ##
