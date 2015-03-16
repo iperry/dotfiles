@@ -5,6 +5,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 export EDITOR=vim
+export TERM=xterm-256color
 
 setopt prompt_subst
 setopt extendedglob
