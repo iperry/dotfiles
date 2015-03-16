@@ -99,6 +99,7 @@ alias gdc='git diff --cached'
 alias gau='git add -u :/'
 alias gca='git commit --amend'
 alias ga='git add'
+alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias vim='nvim'
 
 # path
