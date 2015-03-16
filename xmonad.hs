@@ -18,6 +18,8 @@ import XMonad.Layout.BoringWindows
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Simplest
 import XMonad.Util.Themes
+import XMonad.Layout.Gaps
+import XMonad.Layout.Spacing
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -27,14 +29,16 @@ myFocusedBorderColor = "#33ccff"
 
 myTabTheme = theme wfarrTheme
 
-myLayouts = configurableNavigation noNavigateBorders $
-    boringWindows $
+gapWidth = 5
+
+myLayouts = boringWindows $
     smartBorders $
     avoidStruts $
     (enableTabs rtall ||| tabbed' ||| noBorders Full)
   where
     tabbed' = tabbed shrinkText myTabTheme
-    rtall = ResizableTall 1 (3/100) (1/2) []
+    rtall = spacing gapWidth $ gaps [(U, gapWidth),(D,gapWidth),(L,gapWidth),(R,gapWidth)] $
+            configurableNavigation noNavigateBorders $ ResizableTall 1 (3/100) (1/2) []
     enableTabs x = addTabs shrinkText myTabTheme $ subLayout [] Simplest x
 
 myWorkspaces = ["1:vim", "2:xterm", show 3, "4:docs", show 5, show 6,
