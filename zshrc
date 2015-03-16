@@ -42,7 +42,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 local user_host='%{$terminfo[bold]$fg[green]%}%n@%m%{$reset_color%}'
 local current_dir='%{$terminfo[bold]$fg[blue]%} %~%{$reset_color%}'
 local git_branch='$(git_prompt_info)'
-local prompt_cursor='%{$terminfo[bold]$fg[cyan]$%{$reset_color%}'
+local prompt_cursor='[%{$terminfo[bold]$fg[cyan]%}$%{$reset_color%}]'
 
 PROMPT=" ${user_host} ${current_dir} ${git_branch} ${prompt_cursor} "
 
