@@ -21,6 +21,7 @@ Bundle 'mhinz/vim-signify'
 " Bundle 'scrooloose/syntastic'
 Bundle 'bling/vim-airline'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'vim-scripts/c.vim'
 
 set cinoptions=:0,p0,t0
 set cinwords=if,else,while,do,for,switch,case
