@@ -42,7 +42,7 @@ myLayouts = boringWindows $
     enableTabs x = addTabs shrinkText myTabTheme $ subLayout [] Simplest x
 
 myWorkspaces = ["1:vim", "2:xterm", show 3, "4:docs", show 5, show 6,
-                "7:www", "8:email", "9:irc"]
+                "7:www", "8:email", "9:irc", "10:misc"]
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -118,7 +118,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- mod-shift-[1..9], Move client to workspace N
     --
     [((m .|. modMask, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+        | (i, k) <- zip (XMonad.workspaces conf) ([xK_1 .. xK_9] ++ [xK_0])
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
 
