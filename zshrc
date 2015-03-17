@@ -68,19 +68,81 @@ function vi_mode_prompt() {
     echo ${vi_mode}${prompt_cursor}
 }
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{${red}}("
-ZSH_THEME_GIT_PROMPT_CLEAN="%F{${green}}✔%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%F{${red}}✗%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%F{${red}})%{$reset_color%}"
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+# for async update on git prompt
+# based on https://github.com/byplayer/dot.zsh.d/blob/master/lib/prompt.zsh
+mkdir -p ${TMPPREFIX}
+
+PROMPT_WORK_FNAME=zsh_prompt_hook.$$
+PROMPT_WORK=${TMPPREFIX}/${PROMPT_WORK_FNAME}
+
+function _prompt_is_in_git {
+  if git rev-parse 2> /dev/null; then
+    echo true
+  else
+    echo false
+  fi
+}
+
+function _prompt_git_branch_name {
+  echo $(git symbolic-ref --short HEAD 2> /dev/null || git rev-parse --short HEAD 2> /dev/null)
+}
+
+function _prompt_git_dirty() {
+    local git_status=''
+    git_status=$(command git status --porcelain --untracked-files=no 2> /dev/null | tail -n1)
+    if [[ -n $git_status ]]; then
+        echo "%F{${red}}✗%{$reset_color%}"
+    else
+        echo "%F{${green}}✔%{$reset_color%}"
+    fi
+}
+
+function _git_stat_update {
+  if [ $(_prompt_is_in_git) = "true" ] ; then
+    echo $(pwd) > ${PROMPT_WORK}
+    echo -n "%F{${red}}(" >> ${PROMPT_WORK}
+    echo -n "$(_prompt_git_branch_name)" >> ${PROMPT_WORK}
+    echo -n "$(_prompt_git_dirty)%F{${red}})" >> ${PROMPT_WORK}
+
+    kill -s USR2 $$
+  fi
+}
+
+function _async_git_stat_update {
+  PROMPT=$PROMPT_BASE
+
+  # fail safe to clean up dead file
+  if [ -f ${PROMPT_WORK} ] ; then
+    find ${TMPPREFIX} -name ${PROMPT_WORK_FNAME} -mmin +5 -type f -exec rm -f {} \;
+  fi
+
+  if [ ! -f ${PROMPT_WORK} ] ; then
+    _git_stat_update &!
+  fi
+}
+
+function TRAPUSR2 {
+  if [ -f ${PROMPT_WORK} ] ; then
+    lines=( ${(@f)"$(< ${PROMPT_WORK})"} )
+    if [[ "$lines[1]" = "$(pwd)" ]] ; then
+      git_info=$lines[2]
+    fi
+    rm -f ${PROMPT_WORK}
+    # Force zsh to redisplay the prompt.
+    zle && zle reset-prompt
+  fi
+}
+add-zsh-hook precmd _async_git_stat_update
 
 user_host="%F{${green}}%n@%m%{$reset_color%}"
 current_dir="%F{${blue}} %~%{$reset_color%}"
 prompt_time="[%F{${yellow}}%*${reset_color%}]"
 prompt_cursor=" ▸%{$reset_color%}"
 
-PROMPT='${prompt_time} ${user_host} ${current_dir} $(git_prompt_info)
+PROMPT_BASE='${prompt_time} ${user_host} ${current_dir} ${git_info}
 $(vi_mode_prompt) '
+
+PROMPT='${PROMPT_BASE}'
 
 # colors for ls
 export CLICOLOR=1

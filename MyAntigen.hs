@@ -29,9 +29,9 @@ bundles =
   --
   -- NOTE: If you want to use oh-my-zsh for real (please don't), you still need
   -- to set the $ZSH env var manually.
-  , (bundle "robbyrussell/oh-my-zsh")
-     { sourcingStrategy = filePathsSourcingStrategy
-                           [ "lib/git.zsh" ] }
+  -- , (bundle "robbyrussell/oh-my-zsh")
+  --    { sourcingStrategy = filePathsSourcingStrategy
+  --                          [ "lib/git.zsh" ] }
 
   -- Sourcing a list of files
   -- , (bundle "alfredodeza/zsh-plugins")
