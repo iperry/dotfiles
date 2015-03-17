@@ -25,6 +25,7 @@ bindkey '^E' end-of-line
 bindkey '^w' backward-kill-word
 bindkey '^K' kill-line
 bindkey '^r' history-incremental-search-backward
+bindkey '^b' backward-word
 
 # Colors
 autoload -U colors && colors
