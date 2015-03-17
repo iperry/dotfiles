@@ -19,6 +19,9 @@ bundles =
   , bundle "Tarrasch/zsh-bd"
   , bundle "zsh-users/zsh-syntax-highlighting"
   , bundle "zsh-users/zsh-history-substring-search"
+  , (bundle "robbyrussell/oh-my-zsh")
+      { sourcingStrategy = antigenSourcingStrategy
+      , sourcingLocations = [ "plugins/extract" ] }
 
   -- If you use a plugin that doesn't have a *.plugin.zsh file. You can set a
   -- more liberal sourcing strategy.
