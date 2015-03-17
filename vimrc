@@ -20,6 +20,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'mhinz/vim-signify'
 " Bundle 'scrooloose/syntastic'
 Bundle 'bling/vim-airline'
+Bundle 'Valloric/YouCompleteMe'
 
 set cinoptions=:0,p0,t0
 set cinwords=if,else,while,do,for,switch,case
@@ -212,3 +213,6 @@ if executable('ag')
   " do not limit scan
   let g:ctrlp_max_files = 0
 endif
+
+" YCM
+let g:ycm_confirm_extra_conf = 0
