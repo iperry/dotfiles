@@ -43,6 +43,7 @@ set cinwords=if,else,while,do,for,switch,case
 set formatoptions=tcqr
 
 set fileformat=unix
+set fileformats=unix,dos
 
 function LinuxFormatting()
     setlocal tabstop=8
@@ -83,8 +84,6 @@ set showcmd
 
 " number of lines of context around cursor
 set scrolloff=4
-
-set fileformats=unix
 
 syntax on
 set background=dark
