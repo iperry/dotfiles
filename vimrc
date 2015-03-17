@@ -1,26 +1,28 @@
 set nocompatible
 filetype off
-filetype plugin indent on
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
 set rtp+=~/.vim/cscope/
-call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/nerdtree'
-Bundle 'inkpot'
-Bundle 'kien/ctrlp.vim'
-Bundle 'myusuf3/numbers.vim'
-Bundle 'jlanzarotta/bufexplorer'
-Bundle 'majutsushi/tagbar'
-Bundle 'godlygeek/tabular'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'mhinz/vim-signify'
-Bundle 'bling/vim-airline'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'vim-scripts/c.vim'
+call vundle#begin()
+Plugin 'gmarik/vundle'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'inkpot'
+Plugin 'kien/ctrlp.vim'
+Plugin 'myusuf3/numbers.vim'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'majutsushi/tagbar'
+Plugin 'godlygeek/tabular'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'mhinz/vim-signify'
+Plugin 'bling/vim-airline'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-scripts/c.vim'
+call vundle#end()
+
+filetype plugin indent on
 
 set cinoptions=:0,p0,t0
 set cinwords=if,else,while,do,for,switch,case
@@ -188,6 +190,7 @@ autocmd BufWinLeave * call clearmatches()
 
 " Nicer signify
 highlight clear SignColumn
+
 " Nicer vimdiff
 highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
