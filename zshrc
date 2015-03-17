@@ -90,6 +90,68 @@ function _prompt_git_branch_name {
   echo $(git symbolic-ref --short HEAD 2> /dev/null || git rev-parse --short HEAD 2> /dev/null)
 }
 
+function _prompt_git_action {
+  local rebase_formatted='|REBASE'
+  local apply_formatted='|AM'
+  local rebase_interactive_formatted='|REBASE-i'
+  local rebase_merge_formatted='|REBASE-m'
+  local merge_formatted='|MERGING'
+  local cherry_pick_formatted='|CHERRY-PICKING'
+  local bisect_formatted='|BISECTING'
+  git_dir=$(git rev-parse --git-dir)
+  for action_dir in \
+    "${git_dir}/rebase-apply" \
+    "${git_dir}/rebase"
+  do
+    if [[ -d "$action_dir" ]] ; then
+      if [[ -f "${action_dir}/rebasing" ]] ; then
+        print "$rebase_formatted"
+      elif [[ -f "${action_dir}/applying" ]] ; then
+        print "$apply_formatted"
+      else
+        print "${rebase_formatted}${apply_formatted}"
+      fi
+
+      return 0
+    fi
+  done
+
+  for action_dir in \
+    "${git_dir}/rebase-merge/interactive" \
+    "${git_dir}/.dotest-merge/interactive"
+  do
+    if [[ -f "$action_dir" ]]; then
+      print "$rebase_interactive_formatted"
+      return 0
+    fi
+  done
+
+  for action_dir in \
+    "${git_dir}/rebase-merge" \
+    "${git_dir}/.dotest-merge"
+  do
+    if [[ -d "$action_dir" ]]; then
+      print "$rebase_merge_formatted"
+      return 0
+    fi
+  done
+
+  if [[ -f "${git_dir}/MERGE_HEAD" ]]; then
+    print "$merge_formatted"
+    return 0
+  fi
+
+  if [[ -f "${git_dir}/CHERRY_PICK_HEAD" ]]; then
+    print "$cherry_pick_formatted"
+    return 0
+  fi
+
+  if [[ -f "${git_dir}/BISECT_LOG" ]]; then
+    print "$bisect_formatted"
+    return 0
+  fi
+}
+
 function _prompt_git_dirty() {
     local git_status=''
     git_status=$(command git status --porcelain --untracked-files=no 2> /dev/null | tail -n1)
@@ -104,6 +166,7 @@ function _git_stat_update {
     echo $(pwd) > ${PROMPT_WORK}
     echo -n "%F{${red}}(" >> ${PROMPT_WORK}
     echo -n "$(_prompt_git_branch_name)" >> ${PROMPT_WORK}
+    echo -n "$(_prompt_git_action)" >> ${PROMPT_WORK}
     echo -n "$(_prompt_git_dirty)%F{${red}})" >> ${PROMPT_WORK}
 
     kill -s USR2 $$
@@ -142,7 +205,7 @@ add-zsh-hook precmd _async_git_stat_update
 user_host="%F{${green}}%n@%m%{$reset_color%}"
 current_dir="%F{${blue}} %~%{$reset_color%}"
 prompt_time="[%F{${yellow}}%*${reset_color%}]"
-prompt_cursor=" ▸%{$reset_color%}"
+prompt_cursor="zsh▸%{$reset_color%}"
 
 PROMPT_BASE='${prompt_time} ${user_host} ${current_dir} ${git_info}
 $(vi_mode_prompt) '
