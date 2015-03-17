@@ -3,7 +3,6 @@ filetype off
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
-set rtp+=~/.vim/cscope/
 
 call vundle#begin()
 Plugin 'gmarik/vundle'
@@ -20,6 +19,7 @@ Plugin 'mhinz/vim-signify'
 Plugin 'bling/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/c.vim'
+Plugin 'iperry/cscope_maps'
 call vundle#end()
 
 filetype plugin indent on
