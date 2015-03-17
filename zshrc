@@ -18,8 +18,12 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # vi mode
-# bindkey -v
-# export KEYTIMEOUT=1
+bindkey -v
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^w' backward-kill-word
+bindkey '^K' kill-line
+bindkey '^r' history-incremental-search-backward
 
 # Colors
 autoload -U colors && colors
