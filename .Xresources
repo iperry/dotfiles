@@ -1,0 +1,80 @@
+Xft.antialias:                 true
+Xft.hinting:                   true
+Xft.hintstyle:                 hintfull
+Xft.rgba:                      rgb
+
+URxvt*.transparent: true
+URxvt*.shading: 20
+URxvt*termName: screen-256color
+URxvt*geometry: 240x84
+URxvt*loginShell: true
+URxvt*scrollColor: #777777
+URxvt*scrollstyle: plain
+URxvt*scrollTtyKeypress: true
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: false
+URxvt*secondaryScreen: true
+URxvt*secondaryScroll: true
+URxvt*skipScroll: true
+URxvt*scrollBar: false
+URxvt*scrollBar_right: false
+URxvt*scrollBar_floating: false
+URxvt*utmpInhibit: false
+URxvt*urgentOnBell: false
+URxvt*visualBell: true
+URxvt*mapAlert: true
+URxvt*colorUL: yellow
+URxvt*underlineColor: yellow
+URxvt*font: xft:ProFont:pixelsize:12
+!URxvt*font: xft:Inconsolata\-dz\ for\ Powerline:pixelsize=14
+!URxvt*font: xft:Source\ Code\ Pro:pixelsize=13:antialias=true:hinting=true,xft:Source\ Code\ Pro:pixelsize=13:antialias=true:hinting=true
+! URxvt*font: -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:pixelsize:12
+! URxvt*boldFont: -xos4-terminus-bold-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:bold:pixelsize:12
+URxvt*boldFont:
+! URxvt*italicFont: xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=12
+! URxvt*boldItalicFont: xft:Bitstream Vera Sans Mono:bold:italic:autohint=true:pixelsize=12
+URxvt*saveLines: 10000
+URxvt*buffered: true
+URxvt*hold: false
+URxvt*internalBorder:
+URxvt*print-pipe: cat > $HOME/$(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
+URxvt*perl-ext-common:
+URxvt*perl-ext:
+
+! colors
+URxvt*background: Black
+URxvt*foreground: White
+
+!! Black / Grey
+URxvt.color0:  rgb:00/00/00
+URxvt.color8:  rgb:55/57/53
+
+!! Red / Bright Red
+URxvt.color1:  rgb:CC/00/00
+URxvt.color9:  rgb:EF/29/29
+
+!! Green + Bright Green
+URxvt.color2:  rgb:82/d2/33
+URxvt.color10: rgb:9d/ff/3d
+
+!! Yellow (Orange) + Bright Yellow (Yellow)
+URxvt.color3:  rgb:C4/A0/00
+URxvt.color11: rgb:FC/E9/4F
+
+!! Blue + Bright Blue
+URxvt.color4:  rgb:1e/8b/ff
+URxvt.color12: rgb:92/c7/ff
+
+!! Magenta (Purple) + Bright Magenta
+URxvt.color5:  rgb:75/50/7B
+URxvt.color13: rgb:AD/7F/A8
+
+!! Cyan (Aqua) + Bright Cyan
+URxvt.color6:  rgb:06/98/9A
+URxvt.color14: rgb:34/E2/E2
+
+!! Light Grey (Selection) + White (Current Line)
+URxvt.color7:  rgb:D3/D7/CF
+URxvt.color15: rgb:EE/EE/EC
+
+URxvt.colorBD: rgb:ff/ff/ff

@@ -145,7 +145,7 @@ main = xmonad =<< statusBar myBar myPP toggleStrutsKey defaults
 
 defaults = defaultConfig {
    borderWidth        = 1,
-   terminal           = "gnome-terminal",
+   terminal           = "urxvt",
    normalBorderColor  = myNormalBorderColor,
    focusedBorderColor = myFocusedBorderColor,
    manageHook = manageDocks <+> manageHook defaultConfig,
