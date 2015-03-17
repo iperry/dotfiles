@@ -27,6 +27,8 @@ bindkey '^w' backward-kill-word
 bindkey '^K' kill-line
 bindkey '^r' history-incremental-search-backward
 bindkey '^b' backward-word
+bindkey -M vicmd "/" history-incremental-search-backward
+bindkey -M vicmd "?" history-incremental-search-forward
 
 # Colors
 autoload -U colors && colors
