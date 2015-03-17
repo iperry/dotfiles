@@ -7,7 +7,6 @@ SAVEHIST=1000
 export EDITOR=vim
 export TERM=xterm-256color
 
-setopt prompt_subst
 setopt extendedglob
 setopt share_history
 setopt noautomenu
@@ -25,6 +24,58 @@ export LC_ALL="en_US.UTF-8"
 # Colors
 autoload -U colors && colors
 
+# prompt settings
+setopt prompt_percent
+setopt prompt_subst
+
+# chosen from 256 color palette
+local red=196
+local green=10
+local blue=14
+local yellow=11
+
+# Track vi mode and color the prompt
+vi_ins_mode="%F{${green}}"
+vi_cmd_mode="%F{${red}}"
+vi_mode=$vi_ins_mode
+function zle-keymap-select {
+  vi_mode="${${KEYMAP/vicmd/${vi_cmd_mode}}/(main|viins)/${vi_ins_mode}}"
+  zle reset-prompt
+}
+zle -N zle-keymap-select
+
+function zle-line-finish {
+  vi_mode=$vi_ins_mode
+  zle reset-prompt
+}
+zle -N zle-line-finish
+function TRAPINT() {
+  vi_mode=$vi_ins_mode
+  return $(( 128 + $1 ))
+}
+
+function vi_mode_prompt() {
+    vi_mode="${${KEYMAP/vicmd/${vi_cmd_mode}}/(main|viins)/${vi_ins_mode}}"
+    if [[ "$vi_mode" == "" ]]; then
+        vi_mode=${vi_ins_mode}
+    fi
+    echo ${vi_mode}${prompt_cursor}
+}
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%F{${red}}("
+ZSH_THEME_GIT_PROMPT_CLEAN="%F{${green}}✔%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%F{${red}}✗%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%F{${red}})%{$reset_color%}"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+user_host="%F{${green}}%n@%m%{$reset_color%}"
+current_dir="%F{${blue}} %~%{$reset_color%}"
+prompt_time="[%F{${yellow}}%*${reset_color%}]"
+prompt_cursor=" ▸%{$reset_color%}"
+
+PROMPT='${prompt_time} ${user_host} ${current_dir} $(git_prompt_info)
+$(vi_mode_prompt) '
+
 # colors for ls
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad
@@ -33,21 +84,6 @@ ls --color=auto &> /dev/null && alias ls='ls --color=auto' ||
 
 # Colors for grep
 export GREP_OPTIONS='--color=auto'
-
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[red]%}("
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[red]%})%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}:dirty"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-local user_host='%{$terminfo[bold]$fg[green]%}%n@%m%{$reset_color%}'
-local current_dir='%{$terminfo[bold]$fg[blue]%} %~%{$reset_color%}'
-local git_branch='$(git_prompt_info)'
-local prompt_cursor='[%{$terminfo[bold]$fg[cyan]%}$%{$reset_color%}]'
-local prompt_time='[%{$fg[yellow]%}%*${reset_color%}]'
-
-PROMPT="${prompt_time} ${user_host} ${current_dir} ${git_branch}
-${prompt_cursor} "
 
 # Completion
 ##
