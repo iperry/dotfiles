@@ -21,6 +21,7 @@ export LC_ALL="en_US.UTF-8"
 
 # vi mode
 bindkey -v
+export KEYTIMEOUT=1
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^w' backward-kill-word
