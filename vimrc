@@ -7,9 +7,7 @@ set rtp+=~/.vim/bundle/vundle/
 set rtp+=~/.vim/cscope/
 call vundle#rc()
 
-" let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
-
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'inkpot'
@@ -18,26 +16,11 @@ Bundle 'myusuf3/numbers.vim'
 Bundle 'jlanzarotta/bufexplorer'
 Bundle 'majutsushi/tagbar'
 Bundle 'godlygeek/tabular'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'spf13/vim-colors'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'mhinz/vim-signify'
 " Bundle 'scrooloose/syntastic'
 Bundle 'bling/vim-airline'
 
-" NOTE: comments after Bundle commands are not allowed.
-" Put your stuff after this line
-
-" Notes for me:
-" cmap handles command-line mappings
-" imap handles insert-only mappings
-" map maps keys in normal, visual, and operator-pending mode
-" map! maps keys in command in insert modes
-" nmap maps keys in normal mode only
-" omap maps keys in operator-pending mode only
-" vmap maps keys in visual mode only
-
-" Keep it sane.
 set cinoptions=:0,p0,t0
 set cinwords=if,else,while,do,for,switch,case
 set formatoptions=tcqr
@@ -64,7 +47,7 @@ if has("multi_byte")
   set fileencodings=ucs-bom,utf-8,latin1
   scriptencoding utf-8
 endif
-"
+
 " 4 space tabs
 set tabstop=4
 set shiftwidth=4
