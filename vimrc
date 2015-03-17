@@ -77,7 +77,11 @@ set mouse=a
 set mousehide
 
 if has('clipboard')
-     set clipboard=unnamed
+     if has('unnamedplus')  " When possible use + register for copy-paste
+         set clipboard=unnamedplus
+     else         " On mac and Windows, use * register for copy-paste
+         set clipboard=unnamed
+     endif
 endif
 
 let c_space_errors = 1
