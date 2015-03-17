@@ -92,7 +92,11 @@ function _prompt_git_branch_name {
 }
 
 function _prompt_git_short_rev {
-  echo $(git rev-parse --short HEAD)
+  local rev=''
+  rev="$(git rev-parse --short HEAD 2> /dev/null)"
+  if [[ -n ${rev} ]];  then;
+      echo -n "${rev}|";
+  fi
 }
 
 function _prompt_git_action {
@@ -170,7 +174,7 @@ function _prompt_git_dirty() {
 function _git_stat_update {
     echo $(pwd) > ${PROMPT_WORK}
     echo -n "%F{${red}}(" >> ${PROMPT_WORK}
-    echo -n "$(_prompt_git_short_rev)|" >> ${PROMPT_WORK}
+    echo -n "$(_prompt_git_short_rev)" >> ${PROMPT_WORK}
     echo -n "$(_prompt_git_branch_name)" >> ${PROMPT_WORK}
     echo -n "$(_prompt_git_action)" >> ${PROMPT_WORK}
     echo -n "$(_prompt_git_dirty)%F{${red}})" >> ${PROMPT_WORK}
