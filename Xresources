@@ -50,7 +50,7 @@ URxvt.color0:  rgb:00/00/00
 URxvt.color8:  rgb:55/57/53
 
 !! Red / Bright Red
-URxvt.color1:  rgb:CC/00/00
+URxvt.color1:  rgb:EF/29/29
 URxvt.color9:  rgb:EF/29/29
 
 !! Green + Bright Green
