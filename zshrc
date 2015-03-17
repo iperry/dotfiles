@@ -91,6 +91,10 @@ function _prompt_git_branch_name {
   echo $(git symbolic-ref --short HEAD 2> /dev/null || git rev-parse --short HEAD 2> /dev/null)
 }
 
+function _prompt_git_short_rev {
+  echo $(git rev-parse --short HEAD)
+}
+
 function _prompt_git_action {
   local rebase_formatted='|REBASE'
   local apply_formatted='|AM'
@@ -166,6 +170,7 @@ function _prompt_git_dirty() {
 function _git_stat_update {
     echo $(pwd) > ${PROMPT_WORK}
     echo -n "%F{${red}}(" >> ${PROMPT_WORK}
+    echo -n "$(_prompt_git_short_rev)|" >> ${PROMPT_WORK}
     echo -n "$(_prompt_git_branch_name)" >> ${PROMPT_WORK}
     echo -n "$(_prompt_git_action)" >> ${PROMPT_WORK}
     echo -n "$(_prompt_git_dirty)%F{${red}})" >> ${PROMPT_WORK}
