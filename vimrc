@@ -44,6 +44,18 @@ set formatoptions=tcqr
 
 set fileformat=unix
 
+function LinuxFormatting()
+    setlocal tabstop=8
+    setlocal shiftwidth=8
+    setlocal softtabstop=8
+    setlocal textwidth=80
+    setlocal noexpandtab
+
+    setlocal cindent
+    setlocal formatoptions=tcqlron
+    setlocal cinoptions=:0,l1,t0,g0,(0
+endfunction
+
 " unicode
 if has("multi_byte")
   set encoding=utf-8
