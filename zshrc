@@ -172,31 +172,30 @@ function _prompt_git_dirty() {
 }
 
 function _git_stat_update {
-    echo $(pwd) > ${PROMPT_WORK}
-    echo -n "%F{${red}}(" >> ${PROMPT_WORK}
-    echo -n "$(_prompt_git_short_rev)" >> ${PROMPT_WORK}
-    echo -n "$(_prompt_git_branch_name)" >> ${PROMPT_WORK}
-    echo -n "$(_prompt_git_action)" >> ${PROMPT_WORK}
-    echo -n "$(_prompt_git_dirty)%F{${red}})" >> ${PROMPT_WORK}
+    if [ $(_prompt_is_in_git) = "true" ] ; then
+        echo $(pwd) > ${PROMPT_WORK}
+        echo -n "%F{${red}}(" >> ${PROMPT_WORK}
+        echo -n "$(_prompt_git_short_rev)" >> ${PROMPT_WORK}
+        echo -n "$(_prompt_git_branch_name)" >> ${PROMPT_WORK}
+        echo -n "$(_prompt_git_action)" >> ${PROMPT_WORK}
+        echo -n "$(_prompt_git_dirty)%F{${red}})" >> ${PROMPT_WORK}
 
-    kill -s USR2 $$
+        kill -s USR2 $$
+    fi
 }
 
 function _async_git_stat_update {
     PROMPT=$PROMPT_BASE
 
-    if [ $(_prompt_is_in_git) = "true" ] ; then
-        # fail safe to clean up dead file
-        if [ -f ${PROMPT_WORK} ] ; then
-            find ${TMPPREFIX} -name ${PROMPT_WORK_FNAME} -mmin +5 -type f -exec rm -f {} \;
-        fi
-
-        if [ ! -f ${PROMPT_WORK} ] ; then
-            _git_stat_update &!
-        fi
-    else
-        git_info=''
+    # fail safe to clean up dead file
+    if [ -f ${PROMPT_WORK} ] ; then
+        find ${TMPPREFIX} -name ${PROMPT_WORK_FNAME} -mmin +5 -type f -exec rm -f {} \;
     fi
+
+    if [ ! -f ${PROMPT_WORK} ] ; then
+        _git_stat_update &!
+    fi
+    git_info=''
 }
 
 function TRAPUSR2 {
