@@ -1,17 +1,18 @@
+# use antigen-hs for dependency management
 source ~/.zsh/antigen-hs/init.zsh
 
+# basic settings
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-
-export EDITOR=vim
-export TERM=xterm-256color
-
 setopt extendedglob
 setopt share_history
 setopt noautomenu
 setopt nomenucomplete
 unsetopt nomatch
+
+export EDITOR=vim
+export TERM=xterm-256color
 
 # locale
 export LANG="en_US.UTF-8"
@@ -90,7 +91,6 @@ ls --color=auto &> /dev/null && alias ls='ls --color=auto' ||
 export GREP_OPTIONS='--color=auto'
 
 # Completion
-##
 setopt hash_list_all            # hash everything before completion
 setopt completealiases          # complete alisases
 setopt always_to_end            # when completing from the middle of a word, move the cursor to the end of the word
