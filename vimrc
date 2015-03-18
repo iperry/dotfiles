@@ -31,6 +31,8 @@ set formatoptions=tcqr
 set fileformat=unix
 set fileformats=unix,dos
 
+set listchars=tab:▸\ ,eol:¬
+
 function LinuxFormatting()
     setlocal tabstop=8
     setlocal shiftwidth=8
