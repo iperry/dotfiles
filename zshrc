@@ -20,6 +20,7 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # vi mode
+zmodload zsh/terminfo
 bindkey -v
 export KEYTIMEOUT=1
 bindkey '^A' beginning-of-line
@@ -28,8 +29,12 @@ bindkey '^w' backward-kill-word
 bindkey '^K' kill-line
 bindkey '^r' history-incremental-search-backward
 bindkey '^b' backward-word
-bindkey -M vicmd "/" history-incremental-search-backward
-bindkey -M vicmd "?" history-incremental-search-forward
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey -M vicmd "?" history-incremental-search-backward
+bindkey -M vicmd "/" history-incremental-search-forward
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 # Colors
 autoload -U colors && colors
