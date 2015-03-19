@@ -10,7 +10,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'inkpot'
 Plugin 'kien/ctrlp.vim'
-Plugin 'myusuf3/numbers.vim'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'majutsushi/tagbar'
 Plugin 'godlygeek/tabular'
@@ -32,6 +31,7 @@ set fileformat=unix
 set fileformats=unix,dos
 
 set listchars=tab:▸\ ,eol:¬
+set relativenumber
 
 function LinuxFormatting()
     setlocal tabstop=8
