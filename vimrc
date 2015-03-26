@@ -181,6 +181,8 @@ cnoremap <C-F>    <Right>
 cnoremap <C-B>    <Left>
 cnoremap <C-D>    <Del>
 
+tnoremap <F1> <C-\><C-n>
+
 " turn off backups
 set nobackup
 set nowb
