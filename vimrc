@@ -165,6 +165,8 @@ noremap <F3> <ESC>0i/*<ESC>==A<CR><CR><BS>/<ESC>kA<SPACE>
 
 " use f10 to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F10>
+" Press Space to turn off highlighting and clear any message already displayed.
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " set status line always
 set laststatus=2
