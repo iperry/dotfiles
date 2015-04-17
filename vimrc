@@ -183,6 +183,7 @@ cnoremap <C-F>    <Right>
 cnoremap <C-B>    <Left>
 cnoremap <C-D>    <Del>
 
+" nvim: terminal mode exit to normal mode
 tnoremap <F1> <C-\><C-n>
 
 " turn off backups
