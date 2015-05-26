@@ -236,3 +236,6 @@ endif
 " YCM
 let g:ycm_confirm_extra_conf = 0
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+
+" useful macros
+nnoremap <F8> :r !date<CR>
