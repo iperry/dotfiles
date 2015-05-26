@@ -184,7 +184,12 @@ cnoremap <C-B>    <Left>
 cnoremap <C-D>    <Del>
 
 " nvim: terminal mode exit to normal mode
-tnoremap <F1> <C-\><C-n>
+if has('nvim')
+    tnoremap <F1> <C-\><C-n>
+endif
+
+set clipboard=unnamedplus
+
 
 " turn off backups
 set nobackup
