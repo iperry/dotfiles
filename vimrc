@@ -231,3 +231,12 @@ nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 
 " useful macros
 nnoremap <F8> :r !date<CR>
+
+" Diff specific commands
+nnoremap <expr> H &diff ? ':diffget //2<cr>' : 'H'
+nnoremap <expr> L &diff ? ':diffget //3<cr>' : 'L'
+nnoremap <expr> J &diff ? ']cz.' : 'J'
+nnoremap <expr> K &diff ? '[cz.' : 'K'
+nnoremap <Leader>gs :Gstatus<cr>
+nnoremap <Leader>bd :bd<cr>
+vnoremap <Leader>tn :'<,'>Tabularize /(/l4r0<cr>
