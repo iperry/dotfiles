@@ -1,27 +1,19 @@
-set nocompatible
-filetype off
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-
-call vundle#begin()
-Plugin 'gmarik/vundle'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'inkpot'
-Plugin 'kien/ctrlp.vim'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'majutsushi/tagbar'
-Plugin 'godlygeek/tabular'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'mhinz/vim-signify'
-Plugin 'bling/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-scripts/c.vim'
-Plugin 'iperry/cscope_maps'
-call vundle#end()
-
-filetype plugin indent on
+call plug#begin()
+Plug 'gmarik/vundle'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'inkpot'
+Plug 'kien/ctrlp.vim'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'majutsushi/tagbar'
+Plug 'godlygeek/tabular'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'mhinz/vim-signify'
+Plug 'bling/vim-airline'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-scripts/c.vim'
+Plug 'iperry/cscope_maps'
+call plug#end()
 
 set cinoptions=:0,p0,t0
 set cinwords=if,else,while,do,for,switch,case
