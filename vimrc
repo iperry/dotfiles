@@ -2,7 +2,7 @@ call plug#begin()
 Plug 'gmarik/vundle'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
-Plug 'inkpot'
+Plug 'iperry/inkpot'
 Plug 'kien/ctrlp.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'majutsushi/tagbar'
@@ -93,11 +93,7 @@ func! DeleteTrailingWS()
   exe "normal `z"
 endfunc
 
-"colorscheme
-if &t_Co == 256
-   let g:inkpot_black_background = 1
-   colorscheme inkpot
-endif
+colorscheme inkpot
 
 " search options: highlight search, incremental search
 set hlsearch
