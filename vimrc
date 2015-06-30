@@ -1,5 +1,4 @@
 call plug#begin()
-Plug 'gmarik/vundle'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'iperry/inkpot'
