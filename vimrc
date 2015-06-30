@@ -24,7 +24,7 @@ set fileformats=unix,dos
 set listchars=tab:▸\ ,eol:¬
 set relativenumber
 
-function LinuxFormatting()
+function! LinuxFormatting()
     setlocal tabstop=8
     setlocal shiftwidth=8
     setlocal softtabstop=8
