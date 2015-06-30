@@ -205,6 +205,9 @@ let g:airline_section_y=''
 let g:airline_section_x=''
 let g:airline_section_warning=''
 
+" do not limit scan
+let g:ctrlp_max_files = 0
+
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
@@ -215,9 +218,6 @@ if executable('ag')
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
-
-  " do not limit scan
-  let g:ctrlp_max_files = 0
 endif
 
 " YCM
