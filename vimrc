@@ -7,13 +7,16 @@ Plug 'godlygeek/tabular'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
-Plug 'Valloric/YouCompleteMe'
-Plug 'vim-scripts/c.vim'
+Plug 'ervandew/supertab'
+Plug 'honza/vim-snippets'
 
 " my snippets
 Plug 'iperry/cscope_maps'
+Plug 'iperry/snippets'
 Plug 'iperry/inkpot'
 " Load lazy
+Plug 'SirVer/ultisnips', { 'on': [] }
+Plug 'Valloric/YouCompleteMe', { 'on': [] }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTree' }
 call plug#end()
 
@@ -26,6 +29,22 @@ set fileformats=unix,dos
 
 set listchars=tab:▸\ ,eol:¬
 set relativenumber
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+augroup load_us_ycm
+  autocmd!
+  autocmd InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
+                     \| call youcompleteme#Enable() | autocmd! load_us_ycm
+augroup END
 
 function! LinuxFormatting()
     setlocal tabstop=8
@@ -130,8 +149,6 @@ filetype plugin on
 filetype indent on
 endif
 
-" automatic curly brace closing
-inoremap { {<CR>}<ESC>ko
 let g:toggleCurlyBrace = 1
 function! ToggleCurlyBraceClose()
     if g:toggleCurlyBrace
