@@ -1,6 +1,5 @@
 call plug#begin()
 Plug 'tpope/vim-fugitive'
-Plug 'iperry/inkpot'
 Plug 'kien/ctrlp.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'majutsushi/tagbar'
@@ -10,7 +9,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/c.vim'
+
+" my snippets
 Plug 'iperry/cscope_maps'
+Plug 'iperry/inkpot'
 " Load lazy
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTree' }
 call plug#end()
