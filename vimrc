@@ -249,3 +249,5 @@ nnoremap <expr> K &diff ? '[cz.' : 'K'
 nnoremap <Leader>gs :Gstatus<cr>
 nnoremap <Leader>bd :bd<cr>
 vnoremap <Leader>tn :'<,'>Tabularize /(/l4r0<cr>
+
+set fillchars=fold:\ ,diff:\
