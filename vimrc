@@ -150,6 +150,7 @@ filetype indent on
 endif
 
 let g:toggleCurlyBrace = 1
+inoremap { {<CR>}<ESC>ko
 function! ToggleCurlyBraceClose()
     if g:toggleCurlyBrace
         inoremap { {
