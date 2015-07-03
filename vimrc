@@ -252,4 +252,4 @@ nnoremap <Leader>bd :bd<cr>
 vnoremap <Leader>tn :'<,'>Tabularize /(/l4r0<cr>
 
 set foldmethod=syntax
-set fillchars=fold:\ ,diff:\
+set fillchars=fold:\ ,diff:\ 
