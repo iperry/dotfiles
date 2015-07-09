@@ -226,6 +226,9 @@ $(vi_mode_prompt) '
 
 PROMPT='${PROMPT_BASE}'
 
+# case insensitive search on less
+export LESS=-Ri
+
 # colors for ls
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad
