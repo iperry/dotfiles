@@ -10,7 +10,6 @@ setopt share_history
 setopt noautomenu
 setopt nomenucomplete
 unsetopt nomatch
-setopt RM_STAR_WAIT
 
 export EDITOR=vim
 export TERM=xterm-256color
