@@ -20,15 +20,91 @@ Plug 'Valloric/YouCompleteMe', { 'on': [] }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTree' }
 call plug#end()
 
+" Basic settings
+" ==============
+set encoding=utf-8
+setglobal fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,latin1
+set fileformat=unix
+set fileformats=unix,dos
+scriptencoding utf-8
+
+" turn off backups
+set nobackup
+set nowb
+set noswapfile
+
+" nice big viminfo file
+set viminfo='1000,f1,:1000,/1000
+set history=1000
+
+" enable filetype settings
+filetype on
+filetype plugin on
+filetype indent on
+
+" modelines are dumb
+set nomodeline
+
+" relative line numbers
+set number
+set relativenumber
+
+set foldmethod=syntax
+
+" search options: highlight search, incremental search
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" 4 space tabs
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smarttab
+
+" readline-like tab completion
+set wildmode=longest,list
+set wildmenu
+
+" show partial commands in the last line of the screen
+set showcmd
+
+" number of lines of context around cursor
+set scrolloff=4
+
+set background=dark
+set mouse=a
+set mousehide
+
+" make backspace delet lots of things
+set backspace=indent,eol,start
+
+" status line always
+set laststatus=2
+" set status line format
+set statusline=%<%f\%h%m%r%=%{fugitive#statusline()}%-20.(line=%l\ \ col=%c%V\ \ tot=%L%)
+
+" maintain indentation on new lines for no ft files
+set autoindent
+" clever indentation
+set smartindent
+" clever indentation for c
+set cindent
 set cinoptions=:0,p0,t0,(0
 set cinwords=if,else,while,do,for,switch,case
 set formatoptions=tcqr
 
-set fileformat=unix
-set fileformats=unix,dos
-
 set listchars=tab:▸\ ,eol:¬
-set relativenumber
+set fillchars=fold:\ ,diff:\ 
+
+" colors
+syntax on
+colorscheme inkpot
+
+" Plugin configuration
+" ====================
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -58,39 +134,6 @@ function! LinuxFormatting()
     setlocal cinoptions=:0,l1,t0,g0,(0
 endfunction
 
-" unicode
-if has("multi_byte")
-  set encoding=utf-8
-  setglobal fileencoding=utf-8
-  set fileencodings=ucs-bom,utf-8,latin1
-  scriptencoding utf-8
-endif
-
-" 4 space tabs
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set smarttab
-
-" case insensitive search, except capital letters
-set ic
-set smartcase
-
-" readline-like tab completion
-set wildmode=longest,list
-set wildmenu
-
-" show partial commands in the last line of the screen
-set showcmd
-
-" number of lines of context around cursor
-set scrolloff=4
-
-syntax on
-set background=dark
-set mouse=a
-set mousehide
-
 if has('clipboard')
      if has('unnamedplus')  " When possible use + register for copy-paste
          set clipboard=unnamedplus
@@ -113,41 +156,6 @@ func! DeleteTrailingWS()
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
-
-colorscheme inkpot
-
-" search options: highlight search, incremental search
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-
-" modelines are dumb
-set nomodeline
-
-" enable line numbers
-set number
-
-" nice big viminfo file
-set viminfo='1000,f1,:1000,/1000
-set history=1000
-
-" make backspace delet lots of things
-set backspace=indent,eol,start
-
-" maintain indentation on new lines for no ft files
-set autoindent
-" clever indentation
-set smartindent
-" clever indentation for c
-set cindent
-
-" enable filetype settings
-if has("eval")
-filetype on
-filetype plugin on
-filetype indent on
-endif
 
 let g:toggleCurlyBrace = 1
 inoremap { {<CR>}<ESC>ko
@@ -176,12 +184,6 @@ set pastetoggle=<F10>
 " Press Space to turn off highlighting and clear any message already displayed.
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
-" set status line always
-set laststatus=2
-" set status line format
-"set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ tot=%L%)
-set statusline=%<%f\%h%m%r%=%{fugitive#statusline()}%-20.(line=%l\ \ col=%c%V\ \ tot=%L%)
-
 " readline shortcuts in command line mode
 " see :h cmdline.txt for more
 cnoremap <C-A>    <Home>
@@ -197,12 +199,6 @@ if has('nvim')
 endif
 
 set clipboard=unnamedplus
-
-
-" turn off backups
-set nobackup
-set nowb
-set noswapfile
 
 " highlight whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -250,8 +246,3 @@ nnoremap <expr> K &diff ? '[cz.' : 'K'
 nnoremap <Leader>gs :Gstatus<cr>
 nnoremap <Leader>bd :bd<cr>
 vnoremap <Leader>tn :'<,'>Tabularize /(/l4r0<cr>
-
-set foldmethod=syntax
-set fillchars=fold:\ ,diff:\ 
-
-set cursorline
