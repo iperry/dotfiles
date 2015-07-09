@@ -24,6 +24,8 @@ bundles =
       , sourcingLocations = [ "plugins/extract" ] }
   , (bundle "trapd00r/zsh-syntax-highlighting-filetypes")
       { sourcingStrategy = filePathsSourcingStrategy [ "zsh-syntax-highlighting-filetypes.zsh" ] }
+  , (bundle "huyng/bashmarks")
+      { sourcingStrategy = filePathsSourcingStrategy [ "bashmarks.sh" ] }
 
   -- If you use a plugin that doesn't have a *.plugin.zsh file. You can set a
   -- more liberal sourcing strategy.
