@@ -5,11 +5,12 @@ Config {
     position = Static { xpos = 0 , ypos = 0, width = 1805, height = 18 },
     commands = [
         Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10,
+        Run Com "bin/ip.sh" [] "ip" 60,
         Run Network "eth0" ["-L","0","-H","70","--normal","green","--high","red"] 10,
         Run Memory ["-t","Mem: <usedratio>%"] 10,
         Run Date "%a %b %_d %l:%M:%S" "date" 10,
         Run StdinReader],
     sepChar = "%",
     alignSep = "}{",
-    template = " %StdinReader%}{<fc=grey>%cpu%</fc> <fc=grey>%memory% %eth0%</fc> <fc=#ee9a00>%date%</fc>"
+    template = " %StdinReader%}{<fc=grey>IP: %ip% %cpu%</fc> <fc=grey>%memory% %eth0%</fc> <fc=#ee9a00>%date%</fc>"
 }
