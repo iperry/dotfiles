@@ -20,6 +20,7 @@ import XMonad.Layout.Simplest
 import XMonad.Util.Themes
 import XMonad.Layout.Gaps
 import XMonad.Layout.Spacing
+import XMonad.Layout.SimpleFloat
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -34,11 +35,12 @@ gapWidth = 5
 myLayouts = boringWindows $
     smartBorders $
     avoidStruts $
-    (enableTabs rtall ||| tabbed' ||| noBorders Full)
+    (enableTabs rtall ||| tabbed' ||| noBorders Full ||| float)
   where
     tabbed' = tabbed shrinkText myTabTheme
     rtall = spacing gapWidth $ gaps [(U, gapWidth),(D,gapWidth),(L,gapWidth),(R,gapWidth)] $
             configurableNavigation noNavigateBorders $ ResizableTall 1 (3/100) (1/2) []
+    float = simpleFloat
     enableTabs x = addTabs shrinkText myTabTheme $ subLayout [] Simplest x
 
 myWorkspaces = ["1:vim", "2:xterm", show 3, "4:docs", show 5, show 6,
