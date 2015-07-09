@@ -21,7 +21,7 @@ URxvt*scrollBar_right: false
 URxvt*scrollBar_floating: false
 URxvt*utmpInhibit: false
 URxvt*urgentOnBell: false
-URxvt*visualBell: true
+URxvt*visualBell: false
 URxvt*mapAlert: true
 URxvt*colorUL: yellow
 URxvt*underlineColor: yellow
