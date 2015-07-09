@@ -11,7 +11,7 @@ setopt noautomenu
 setopt nomenucomplete
 unsetopt nomatch
 
-export EDITOR=vim
+export EDITOR=nvim
 export TERM=xterm-256color
 
 # locale
