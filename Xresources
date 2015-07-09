@@ -42,7 +42,7 @@ URxvt*perl-ext-common:
 URxvt*perl-ext:
 
 ! colors
-URxvt*background: Black
+URxvt*background: rgb:10/10/10
 URxvt*foreground: White
 
 !! Black / Grey
