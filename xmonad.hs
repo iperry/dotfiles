@@ -21,6 +21,7 @@ import XMonad.Util.Themes
 import XMonad.Layout.Gaps
 import XMonad.Layout.Spacing
 import XMonad.Layout.SimpleFloat
+import XMonad.Hooks.EwmhDesktops
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -143,7 +144,7 @@ myPP = xmobarPP {
 -- Key binding to toggle the gap for the bar.
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
-main = xmonad =<< statusBar myBar myPP toggleStrutsKey defaults
+main = xmonad =<< statusBar myBar myPP toggleStrutsKey (ewmh $ defaults)
 
 defaults = defaultConfig {
    borderWidth        = 1,
