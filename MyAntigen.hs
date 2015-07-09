@@ -22,6 +22,8 @@ bundles =
   , (bundle "robbyrussell/oh-my-zsh")
       { sourcingStrategy = antigenSourcingStrategy
       , sourcingLocations = [ "plugins/extract" ] }
+  , (bundle "trapd00r/zsh-syntax-highlighting-filetypes")
+      { sourcingStrategy = filePathsSourcingStrategy [ "zsh-syntax-highlighting-filetypes.zsh" ] }
 
   -- If you use a plugin that doesn't have a *.plugin.zsh file. You can set a
   -- more liberal sourcing strategy.
