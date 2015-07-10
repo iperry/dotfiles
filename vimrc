@@ -99,6 +99,8 @@ set formatoptions=tcqr
 set listchars=tab:▸\ ,eol:¬
 set fillchars=fold:\ ,diff:\ 
 
+set cursorline
+
 " colors
 syntax on
 colorscheme inkpot
