@@ -113,6 +113,12 @@ set nojoinspaces
 "   https://github.com/neovim/neovim/issues/1822
 "set clipboard=unnamedplus
 
+" Filetype-specific autocmds
+" ==========================
+
+" leave autoindent on, but disable cindent and smartindent
+autocmd FileType text setlocal nocindent nosmartindent indentexpr=
+
 " Plugin configuration
 " ====================
 
