@@ -110,6 +110,10 @@ colorscheme inkpot
 " Single space after period when joining
 set nojoinspaces
 
+" Clipboard settings. Disable unnamed* because of nvim issue 1822
+"   https://github.com/neovim/neovim/issues/1822
+"set clipboard=unnamedplus
+
 " Plugin configuration
 " ====================
 
@@ -140,14 +144,6 @@ function! LinuxFormatting()
     setlocal formatoptions=tcqlron
     setlocal cinoptions=:0,l1,t0,g0,(0
 endfunction
-
-if has('clipboard')
-     if has('unnamedplus')  " When possible use + register for copy-paste
-         set clipboard=unnamedplus
-     else         " On mac and Windows, use * register for copy-paste
-         set clipboard=unnamed
-     endif
-endif
 
 let c_space_errors = 1
 " highlight trailing whitespace
@@ -207,7 +203,6 @@ if has('nvim')
     tnoremap <F1> <C-\><C-n>
 endif
 
-set clipboard=unnamedplus
 
 " highlight whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
