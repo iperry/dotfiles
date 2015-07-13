@@ -10,6 +10,7 @@ Plug 'bling/vim-airline'
 Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 Plug 'rking/ag.vim'
+Plug 'chrisbra/vim-diff-enhanced'
 
 " my snippets
 Plug 'iperry/cscope_maps'
@@ -254,3 +255,6 @@ vnoremap <Leader>tn :'<,'>Tabularize /(/l4r0<cr>
 
 "Highlight search terms from ag
 let g:ag_highlight=1
+
+" Set patience diff for use with vim-diff-enhanced
+let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
