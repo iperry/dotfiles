@@ -100,7 +100,11 @@ set formatoptions=tcqr
 set listchars=tab:▸\ ,eol:¬
 set fillchars=fold:\ ,diff:\ 
 
+" Highlight our cursor line
 set cursorline
+
+" Disable cursorline in diff-mode
+autocmd FilterWritePre * setlocal nocursorline
 
 " colors
 syntax on
@@ -112,6 +116,7 @@ set nojoinspaces
 " Clipboard settings. Disable unnamed* because of nvim issue 1822
 "   https://github.com/neovim/neovim/issues/1822
 "set clipboard=unnamedplus
+
 
 " Filetype-specific autocmds
 " ==========================
