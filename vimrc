@@ -85,8 +85,6 @@ set backspace=indent,eol,start
 
 " status line always
 set laststatus=2
-" set status line format
-set statusline=%<%f\%h%m%r%=%{fugitive#statusline()}%-20.(line=%l\ \ col=%c%V\ \ tot=%L%)
 
 " maintain indentation on new lines for no ft files
 set autoindent
