@@ -9,6 +9,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
+Plug 'rking/ag.vim'
 
 " my snippets
 Plug 'iperry/cscope_maps'
@@ -248,3 +249,6 @@ nnoremap <expr> K &diff ? '[cz.' : 'K'
 nnoremap <Leader>gs :Gstatus<cr>
 nnoremap <Leader>bd :bd<cr>
 vnoremap <Leader>tn :'<,'>Tabularize /(/l4r0<cr>
+
+"Highlight search terms from ag
+let g:ag_highlight=1
