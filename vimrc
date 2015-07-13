@@ -107,6 +107,9 @@ set cursorline
 syntax on
 colorscheme inkpot
 
+" Single space after period when joining
+set nojoinspaces
+
 " Plugin configuration
 " ====================
 
