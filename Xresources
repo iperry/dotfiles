@@ -25,7 +25,7 @@ URxvt*visualBell: false
 URxvt*mapAlert: true
 URxvt*colorUL: yellow
 URxvt*underlineColor: yellow
-URxvt*font: xft:ProFont:pixelsize:12
+URxvt*font: xft:ProFont:pixelsize:12,xft:Inconsolata\ for\ Powerline:pixelsize=12
 !URxvt*font: xft:Inconsolata\-dz\ for\ Powerline:pixelsize=14
 !URxvt*font: xft:Source\ Code\ Pro:pixelsize=13:antialias=true:hinting=true,xft:Source\ Code\ Pro:pixelsize=13:antialias=true:hinting=true
 ! URxvt*font: -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:pixelsize:12
