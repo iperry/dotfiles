@@ -11,6 +11,7 @@ Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 Plug 'rking/ag.vim'
 Plug 'chrisbra/vim-diff-enhanced'
+Plug 'embear/vim-localvimrc'
 
 " my snippets
 Plug 'iperry/cscope_maps'
@@ -252,3 +253,6 @@ let g:ag_highlight=1
 
 " Set patience diff for use with vim-diff-enhanced
 let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
+
+" Only confirm one time for local vimrc
+let g:localvimrc_persistent=1
