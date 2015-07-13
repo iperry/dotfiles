@@ -195,6 +195,8 @@ cnoremap <C-K>    <C-E><C-U>
 cnoremap <C-F>    <Right>
 cnoremap <C-B>    <Left>
 cnoremap <C-D>    <Del>
+cnoremap <M-b>    <S-Left>
+cnoremap <M-f>    <S-Right>
 
 " nvim: terminal mode exit to normal mode
 if has('nvim')
