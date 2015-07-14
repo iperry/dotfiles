@@ -14,6 +14,7 @@ Plug 'rking/ag.vim'
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'embear/vim-localvimrc'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'jiangmiao/auto-pairs'
 
 " my snippets
 Plug 'iperry/cscope_maps'
@@ -173,22 +174,6 @@ endfunction
 if has('nvim')
     tnoremap <F1> <C-\><C-n>
 endif
-
-" auto close curly braces
-let g:toggleCurlyBrace = 1
-inoremap { {<CR>}<ESC>ko
-function! ToggleCurlyBraceClose()
-    if g:toggleCurlyBrace
-        inoremap { {
-        let g:toggleCurlyBrace = 0
-    else
-        inoremap { {<CR>}<ESC>ko
-        let g:toggleCurlyBrace = 1
-    endif
-endfunction
-" map f4 to toggle curly brace closing
-nmap <F4> :call ToggleCurlyBraceClose()<CR>
-
 
 " Filetype-specific autocmds
 " ==========================
