@@ -56,6 +56,7 @@ set nomodeline
 set number
 set relativenumber
 
+" folding
 set foldmethod=syntax
 
 " search options: highlight search, incremental search
@@ -64,7 +65,7 @@ set incsearch
 set ignorecase
 set smartcase
 
-" 4 space tabs
+" tab settings
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -80,7 +81,7 @@ set showcmd
 " number of lines of context around cursor
 set scrolloff=4
 
-set background=dark
+" enable the mouse
 set mouse=a
 set mousehide
 
@@ -90,11 +91,9 @@ set backspace=indent,eol,start
 " status line always
 set laststatus=2
 
-" maintain indentation on new lines for no ft files
+" indent options
 set autoindent
-" clever indentation
 set smartindent
-" clever indentation for c
 set cindent
 set cinoptions=:0,p0,t0,(0
 set cinwords=if,else,while,do,for,switch,case
@@ -111,6 +110,7 @@ autocmd FilterWritePre * setlocal nocursorline
 
 " colors
 syntax on
+set background=dark
 colorscheme inkpot
 
 " Single space after period when joining
@@ -123,8 +123,8 @@ set previewheight=20
 "   https://github.com/neovim/neovim/issues/1822
 "set clipboard=unnamedplus
 
-" Special keybindings
-" ===================
+" Special mappings and other
+" ==========================
 " Useful macros
 nnoremap <F8> :r !date<CR>
 
@@ -133,6 +133,61 @@ nnoremap <expr> H &diff ? ':diffget //2<cr>' : 'H'
 nnoremap <expr> L &diff ? ':diffget //3<cr>' : 'L'
 nnoremap <expr> J &diff ? ']cz.' : 'J'
 nnoremap <expr> K &diff ? '[cz.' : 'K'
+
+" readline shortcuts in command line mode
+" see :h cmdline.txt for more
+cnoremap <C-A>    <Home>
+cnoremap <C-E>    <End>
+cnoremap <C-K>    <C-E><C-U>
+cnoremap <C-F>    <Right>
+cnoremap <C-B>    <Left>
+cnoremap <C-D>    <Del>
+cnoremap <M-b>    <S-Left>
+cnoremap <M-f>    <S-Right>
+
+" press space to turn off highlighting and clear any message already displayed.
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" single line c commenting macro
+inoremap <F2> <ESC>0i/**/<ESC>==lli<SPACE><SPACE><ESC>i
+noremap <F2> <ESC>0i/**/<ESC>==lli<SPACE><SPACE><ESC>i
+
+" multiline c commenting macro
+inoremap <F3> <ESC>0i/*<ESC>==A<CR><CR><BS>/<ESC>kA<SPACE>
+noremap <F3> <ESC>0i/*<ESC>==A<CR><CR><BS>/<ESC>kA<SPACE>
+
+" linux kernel settings
+function! LinuxFormatting()
+    setlocal tabstop=8
+    setlocal shiftwidth=8
+    setlocal softtabstop=8
+    setlocal textwidth=80
+    setlocal noexpandtab
+
+    setlocal cindent
+    setlocal formatoptions=tcqlron
+    setlocal cinoptions=:0,l1,t0,g0,(0
+endfunction
+
+" nvim: terminal mode exit to normal mode
+if has('nvim')
+    tnoremap <F1> <C-\><C-n>
+endif
+
+" auto close curly braces
+let g:toggleCurlyBrace = 1
+inoremap { {<CR>}<ESC>ko
+function! ToggleCurlyBraceClose()
+    if g:toggleCurlyBrace
+        inoremap { {
+        let g:toggleCurlyBrace = 0
+    else
+        inoremap { {<CR>}<ESC>ko
+        let g:toggleCurlyBrace = 1
+    endif
+endfunction
+" map f4 to toggle curly brace closing
+nmap <F4> :call ToggleCurlyBraceClose()<CR>
 
 
 " Filetype-specific autocmds
@@ -158,76 +213,20 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+" Autoload ultisnips and ycm only on insert mode
 augroup load_us_ycm
   autocmd!
   autocmd InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
                      \| call youcompleteme#Enable() | autocmd! load_us_ycm
 augroup END
 
-function! LinuxFormatting()
-    setlocal tabstop=8
-    setlocal shiftwidth=8
-    setlocal softtabstop=8
-    setlocal textwidth=80
-    setlocal noexpandtab
-
-    setlocal cindent
-    setlocal formatoptions=tcqlron
-    setlocal cinoptions=:0,l1,t0,g0,(0
-endfunction
-
-
-let g:toggleCurlyBrace = 1
-inoremap { {<CR>}<ESC>ko
-function! ToggleCurlyBraceClose()
-    if g:toggleCurlyBrace
-        inoremap { {
-        let g:toggleCurlyBrace = 0
-    else
-        inoremap { {<CR>}<ESC>ko
-        let g:toggleCurlyBrace = 1
-    endif
-endfunction
-" map f4 to toggle curly brace closing
-nmap <F4> :call ToggleCurlyBraceClose()<CR>
-
-" single line c commenting macro
-inoremap <F2> <ESC>0i/**/<ESC>==lli<SPACE><SPACE><ESC>i
-noremap <F2> <ESC>0i/**/<ESC>==lli<SPACE><SPACE><ESC>i
-
-" multiline c commenting macro
-inoremap <F3> <ESC>0i/*<ESC>==A<CR><CR><BS>/<ESC>kA<SPACE>
-noremap <F3> <ESC>0i/*<ESC>==A<CR><CR><BS>/<ESC>kA<SPACE>
-
-" Press Space to turn off highlighting and clear any message already displayed.
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-
-" readline shortcuts in command line mode
-" see :h cmdline.txt for more
-cnoremap <C-A>    <Home>
-cnoremap <C-E>    <End>
-cnoremap <C-K>    <C-E><C-U>
-cnoremap <C-F>    <Right>
-cnoremap <C-B>    <Left>
-cnoremap <C-D>    <Del>
-cnoremap <M-b>    <S-Left>
-cnoremap <M-f>    <S-Right>
-
-" nvim: terminal mode exit to normal mode
-if has('nvim')
-    tnoremap <F1> <C-\><C-n>
-endif
-
-" Nicer signify
-highlight clear SignColumn
-
-" Airline
+" airline
 let g:airline_section_warning=''
 
 " ctrlp: do not limit scan
 let g:ctrlp_max_files = 0
 
-" The Silver Searcher
+" ag
 if executable('ag')
   " Highlight search terms from ag
   let g:ag_highlight=1
@@ -250,8 +249,10 @@ nnoremap <Leader>gr :Git! diff --staged<cr>
 " tabularize
 vnoremap <Leader>tn :'<,'>Tabularize /(/l4r0<cr>
 
-" Set patience diff for use with vim-diff-enhanced
+" vim-diff-enhanced
+" use patience diff by default
 let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
 
-" Only confirm one time for local vimrc
+" vim-localvimrc
+" only confirm one time for each lvimrc
 let g:localvimrc_persistent=1
