@@ -13,12 +13,14 @@ Plug 'honza/vim-snippets'
 Plug 'rking/ag.vim'
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'embear/vim-localvimrc'
+Plug 'ntpeters/vim-better-whitespace'
 
 " my snippets
 Plug 'iperry/cscope_maps'
 Plug 'iperry/snippets'
 Plug 'iperry/inkpot'
-" Load lazy
+
+" lazy load
 Plug 'SirVer/ultisnips', { 'on': [] }
 Plug 'Valloric/YouCompleteMe', { 'on': [] }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTree' }
@@ -174,20 +176,6 @@ function! LinuxFormatting()
     setlocal cinoptions=:0,l1,t0,g0,(0
 endfunction
 
-let c_space_errors = 1
-" highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-" match trailing whitespace and spaces before a tab
-"autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
-" match only trailing whitespaces
-autocmd Syntax * syn match ExtraWhitespace /\s\+$/
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkblue guibg=darkblue
-" trailing ws function
-func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
 
 let g:toggleCurlyBrace = 1
 inoremap { {<CR>}<ESC>ko
@@ -230,19 +218,10 @@ if has('nvim')
     tnoremap <F1> <C-\><C-n>
 endif
 
-
-" highlight whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-
 " Nicer signify
 highlight clear SignColumn
 
-"Airline
+" Airline
 let g:airline_section_warning=''
 
 " ctrlp: do not limit scan
