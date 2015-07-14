@@ -127,6 +127,10 @@ autocmd FileType text setlocal nocindent nosmartindent indentexpr=
 " Plugin configuration
 " ====================
 
+" YCM
+let g:ycm_confirm_extra_conf = 0
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -226,7 +230,7 @@ highlight clear SignColumn
 "Airline
 let g:airline_section_warning=''
 
-" do not limit scan
+" ctrlp: do not limit scan
 let g:ctrlp_max_files = 0
 
 " The Silver Searcher
@@ -244,10 +248,6 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-" YCM
-let g:ycm_confirm_extra_conf = 0
-nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-
 " useful macros
 nnoremap <F8> :r !date<CR>
 
@@ -257,7 +257,6 @@ nnoremap <expr> L &diff ? ':diffget //3<cr>' : 'L'
 nnoremap <expr> J &diff ? ']cz.' : 'J'
 nnoremap <expr> K &diff ? '[cz.' : 'K'
 nnoremap <Leader>gs :Gstatus<cr>
-nnoremap <Leader>bd :bd<cr>
 vnoremap <Leader>tn :'<,'>Tabularize /(/l4r0<cr>
 
 " Set patience diff for use with vim-diff-enhanced
