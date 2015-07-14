@@ -241,3 +241,10 @@ let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
 " vim-localvimrc
 " only confirm one time for each lvimrc
 let g:localvimrc_persistent=1
+
+" Local machine-specific configuration
+" Put any host-specific stuff in ~/.hvimrc
+let s:host_vimrc = $HOME . '/.hvimrc'
+if filereadable(s:host_vimrc)
+    execute 'source ' . s:host_vimrc
+endif
