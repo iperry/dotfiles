@@ -117,6 +117,17 @@ set nojoinspaces
 "   https://github.com/neovim/neovim/issues/1822
 "set clipboard=unnamedplus
 
+" Special keybindings
+" ===================
+" Useful macros
+nnoremap <F8> :r !date<CR>
+
+" Diff specific commands
+nnoremap <expr> H &diff ? ':diffget //2<cr>' : 'H'
+nnoremap <expr> L &diff ? ':diffget //3<cr>' : 'L'
+nnoremap <expr> J &diff ? ']cz.' : 'J'
+nnoremap <expr> K &diff ? '[cz.' : 'K'
+
 
 " Filetype-specific autocmds
 " ==========================
@@ -124,9 +135,9 @@ set nojoinspaces
 " leave autoindent on, but disable cindent and smartindent
 autocmd FileType text setlocal nocindent nosmartindent indentexpr=
 
+
 " Plugin configuration
 " ====================
-
 " YCM
 let g:ycm_confirm_extra_conf = 0
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
@@ -248,15 +259,10 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-" useful macros
-nnoremap <F8> :r !date<CR>
-
-" Diff specific commands
-nnoremap <expr> H &diff ? ':diffget //2<cr>' : 'H'
-nnoremap <expr> L &diff ? ':diffget //3<cr>' : 'L'
-nnoremap <expr> J &diff ? ']cz.' : 'J'
-nnoremap <expr> K &diff ? '[cz.' : 'K'
+" vim-fugitive
 nnoremap <Leader>gs :Gstatus<cr>
+
+" tabularize
 vnoremap <Leader>tn :'<,'>Tabularize /(/l4r0<cr>
 
 " Set patience diff for use with vim-diff-enhanced
