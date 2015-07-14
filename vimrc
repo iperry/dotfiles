@@ -114,6 +114,9 @@ colorscheme inkpot
 " Single space after period when joining
 set nojoinspaces
 
+" Make the preview window a bit bigger
+set previewheight=20
+
 " Clipboard settings. Disable unnamed* because of nvim issue 1822
 "   https://github.com/neovim/neovim/issues/1822
 "set clipboard=unnamedplus
