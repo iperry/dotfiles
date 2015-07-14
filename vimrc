@@ -231,6 +231,9 @@ let g:ctrlp_max_files = 0
 
 " The Silver Searcher
 if executable('ag')
+  " Highlight search terms from ag
+  let g:ag_highlight=1
+
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
 
@@ -256,9 +259,6 @@ nnoremap <expr> K &diff ? '[cz.' : 'K'
 nnoremap <Leader>gs :Gstatus<cr>
 nnoremap <Leader>bd :bd<cr>
 vnoremap <Leader>tn :'<,'>Tabularize /(/l4r0<cr>
-
-"Highlight search terms from ag
-let g:ag_highlight=1
 
 " Set patience diff for use with vim-diff-enhanced
 let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
