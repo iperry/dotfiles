@@ -261,6 +261,8 @@ endif
 
 " vim-fugitive
 nnoremap <Leader>gs :Gstatus<cr>
+nnoremap <Leader>gcv :Gcommit --verbose<cr>
+nnoremap <Leader>gr :Git! diff --staged<cr>
 
 " tabularize
 vnoremap <Leader>tn :'<,'>Tabularize /(/l4r0<cr>
