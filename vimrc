@@ -30,7 +30,6 @@ call plug#end()
 
 " Basic settings
 " ==============
-set encoding=utf-8
 setglobal fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,latin1
 set fileformat=unix
