@@ -58,7 +58,8 @@ set number
 set relativenumber
 
 " folding
-set foldmethod=syntax
+ set foldminlines=0
+ set foldnestmax=1
 
 " search options: highlight search, incremental search
 set hlsearch
@@ -180,6 +181,9 @@ endif
 
 " leave autoindent on, but disable cindent and smartindent
 autocmd FileType text setlocal nocindent nosmartindent indentexpr=
+
+" Only fold c and c++
+autocmd FileType c,cpp setlocal foldmethod=indent
 
 
 " Plugin configuration
