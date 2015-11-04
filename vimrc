@@ -211,6 +211,7 @@ augroup END
 
 " airline
 let g:airline_section_warning=''
+let g:airline_powerline_fonts=1
 
 " ctrlp: do not limit scan
 let g:ctrlp_max_files = 0
