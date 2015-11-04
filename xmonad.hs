@@ -22,6 +22,7 @@ import XMonad.Layout.Gaps
 import XMonad.Layout.Spacing
 import XMonad.Layout.SimpleFloat
 import XMonad.Hooks.EwmhDesktops
+import Graphics.X11.ExtraTypes.XF86
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -112,6 +113,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask              , xK_q     ), restart "xmonad" True)
     -- Lock xscreensaver
     , ((modMask .|. controlMask, xK_x     ), spawn "xscreensaver-command -lock")
+
+    -- volume controls
+    , ((0, xF86XK_AudioLowerVolume   ), spawn "volctl.sh down")
+    , ((0, xF86XK_AudioRaiseVolume   ), spawn "volctl.sh up")
+    , ((0, xF86XK_AudioMute          ), spawn "volctl.sh mute")
     ]
     ++
 
