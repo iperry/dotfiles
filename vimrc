@@ -16,6 +16,7 @@ Plug 'chrisbra/vim-diff-enhanced'
 Plug 'embear/vim-localvimrc'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
+Plug 'rhysd/vim-clang-format'
 
 " my snippets
 Plug 'iperry/cscope_maps'
@@ -252,3 +253,13 @@ let s:host_vimrc = $HOME . '/.hvimrc'
 if filereadable(s:host_vimrc)
     execute 'source ' . s:host_vimrc
 endif
+
+" clang-format
+function! ClangFormatQML()
+  let tmpfile = tempname() . ".js"
+  execute 'write ' . tmpfile
+  execute '1,$d'
+  execute '0r !clang-format ' . tmpfile
+endfunction
+nnoremap <Leader>cq :call ClangFormatQML()<cr>
+nnoremap <Leader>cf :ClangFormat<cr>
