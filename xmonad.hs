@@ -149,9 +149,9 @@ myPP = xmobarPP {
 -- Key binding to toggle the gap for the bar.
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
-main = xmonad =<< statusBar myBar myPP toggleStrutsKey (ewmh $ defaults)
+main = xmonad =<< statusBar myBar myPP toggleStrutsKey defaults
 
-defaults = defaultConfig {
+defaults = ewmh defaultConfig {
    borderWidth        = 1,
    terminal           = "roxterm",
    normalBorderColor  = myNormalBorderColor,
@@ -166,5 +166,6 @@ defaults = defaultConfig {
    layoutHook = myLayouts,
    startupHook = setWMName "LG3D",
    focusFollowsMouse = True,
-   workspaces = myWorkspaces
+   workspaces = myWorkspaces,
+   handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
 }
