@@ -17,6 +17,7 @@ Plug 'embear/vim-localvimrc'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rhysd/vim-clang-format'
+Plug 'peterhoeg/vim-qml'
 
 " my snippets
 Plug 'iperry/cscope_maps'
