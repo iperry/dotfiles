@@ -156,8 +156,12 @@ defaults = defaultConfig {
    terminal           = "roxterm",
    normalBorderColor  = myNormalBorderColor,
    focusedBorderColor = myFocusedBorderColor,
-   manageHook = manageDocks <+> manageHook defaultConfig,
    modMask = mod4Mask,
+   manageHook = composeAll
+       [ className =? "portal" --> doFloat
+       , className =? "mpv" --> doFloat
+       , manageDocks
+       ],
    keys = myKeys,
    layoutHook = myLayouts,
    startupHook = setWMName "LG3D",
