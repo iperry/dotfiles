@@ -151,21 +151,21 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey defaults
 
-defaults = ewmh defaultConfig {
-   borderWidth        = 1,
-   terminal           = "roxterm",
-   normalBorderColor  = myNormalBorderColor,
-   focusedBorderColor = myFocusedBorderColor,
-   modMask = mod4Mask,
-   manageHook = composeAll
-       [ className =? "portal" --> doFloat
-       , className =? "mpv" --> doFloat
-       , manageDocks
-       ],
-   keys = myKeys,
-   layoutHook = myLayouts,
-   startupHook = setWMName "LG3D",
-   focusFollowsMouse = True,
-   workspaces = myWorkspaces,
-   handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
-}
+defaults = ewmh defaultConfig
+    { borderWidth        = 1
+    , terminal           = "roxterm"
+    , normalBorderColor  = myNormalBorderColor
+    , focusedBorderColor = myFocusedBorderColor
+    , modMask = mod4Mask
+    , manageHook = composeAll
+        [ className =? "portal" --> doFloat
+        , className =? "mpv" --> doFloat
+        , manageDocks
+        ]
+    , keys = myKeys
+    , layoutHook = myLayouts
+    , startupHook = setWMName "LG3D"
+    , focusFollowsMouse = True
+    , workspaces = myWorkspaces
+    , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
+    }
