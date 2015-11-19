@@ -33,8 +33,7 @@ myFocusedBorderColor = "#33ccff"
 
 myTabTheme = theme wfarrTheme
 
-gapWidth = 5
-
+gapWidth = 20
 myLayouts = boringWindows $
     smartBorders $
     avoidStruts $
