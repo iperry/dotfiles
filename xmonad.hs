@@ -23,6 +23,7 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.SimpleFloat
 import XMonad.Hooks.EwmhDesktops
 import Graphics.X11.ExtraTypes.XF86
+import XMonad.Hooks.FadeInactive
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -46,6 +47,8 @@ myLayouts = boringWindows $
 
 myWorkspaces = ["1:vim", "2:xterm", show 3, "4:docs", show 5, show 6,
                 "7:www", "8:email", "9:irc", "10:misc"]
+
+myLogHook = fadeInactiveLogHook fadeAmount where fadeAmount = 0.9
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -168,4 +171,5 @@ defaults = ewmh defaultConfig
     , focusFollowsMouse = True
     , workspaces = myWorkspaces
     , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
+    , logHook = myLogHook
     }
