@@ -153,23 +153,21 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
--- Key binding to toggle the gap for the bar.
-toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
-
 main = do
     h <- spawnPipe myBar
-    xmonad $ ewmh defaultConfig {
-      borderWidth        = 1
-    , terminal           = "roxterm"
-    , normalBorderColor  = myNormalBorderColor
-    , focusedBorderColor = myFocusedBorderColor
-    , modMask = mod4Mask
-    , manageHook = manageDocks
-    , keys = myKeys
-    , layoutHook = myLayouts
-    , startupHook = setWMName "LG3D"
-    , focusFollowsMouse = True
-    , workspaces = myWorkspaces
-    , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
-    , logHook = myLogHook h
-    }
+    xmonad $
+        ewmh defaultConfig
+            { borderWidth        = 0
+            , terminal           = "roxterm"
+            , normalBorderColor  = myNormalBorderColor
+            , focusedBorderColor = myFocusedBorderColor
+            , modMask = mod4Mask
+            , manageHook = manageDocks
+            , keys = myKeys
+            , layoutHook = myLayouts
+            , startupHook = setWMName "LG3D"
+            , focusFollowsMouse = True
+            , workspaces = myWorkspaces
+            , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
+            , logHook = myLogHook h
+            }
