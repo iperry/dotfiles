@@ -36,9 +36,9 @@ myTabTheme = theme wfarrTheme
 
 gapWidth = 15
 myLayouts = boringWindows $
-    smartBorders $
-    avoidStruts $
-    (rtall ||| tabbed' ||| noBorders Full ||| float)
+    lessBorders OnlyFloat $
+    noBorders $
+    (rtall ||| tabbed' ||| Full ||| float)
   where
     tabbed' = tabbed shrinkText myTabTheme
     rtall = spacing gapWidth $ gaps [(U, gapWidth),(D,gapWidth),(L,gapWidth),(R,gapWidth)] $
@@ -164,11 +164,7 @@ main = do
     , normalBorderColor  = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
     , modMask = mod4Mask
-    , manageHook = composeAll
-        [ className =? "portal" --> doFloat
-        , className =? "mpv" --> doFloat
-        , manageDocks
-        ]
+    , manageHook = manageDocks
     , keys = myKeys
     , layoutHook = myLayouts
     , startupHook = setWMName "LG3D"
