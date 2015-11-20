@@ -25,6 +25,7 @@ import XMonad.Hooks.EwmhDesktops
 import Graphics.X11.ExtraTypes.XF86
 import XMonad.Hooks.FadeInactive
 
+import XMonad.Util.Run
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
@@ -47,7 +48,19 @@ myLayouts = boringWindows $
 myWorkspaces = ["1:vim", "2:xterm", show 3, "4:docs", show 5, show 6,
                 "7:www", "8:email", "9:irc", "10:misc"]
 
-myLogHook = fadeInactiveLogHook fadeAmount where fadeAmount = 0.9
+-- xmobar settings
+myBar = "xmobar"
+myPP h = defaultPP
+    { ppCurrent = xmobarColor "#4060c0" "#000040" . wrap "<" ">"
+    , ppVisible = xmobarColor "#4080ff" "#000040" . wrap "(" ")"
+    , ppTitle = xmobarColor "#4080ff" ""
+    , ppLayout = return ""
+    , ppOutput = hPutStrLn h
+}
+
+myLogHook h = composeAll [ fadeInactiveLogHook 0.9
+                         , dynamicLogWithPP $ myPP h
+                         ]
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -140,21 +153,13 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
--- xmobar settings
-myBar = "xmobar"
-myPP = xmobarPP {
-    ppCurrent = xmobarColor "#ff0066" "" . wrap "<" ">",
-    ppVisible = xmobarColor "#ff00ff" "" . wrap "(" ")",
-    ppTitle = xmobarColor "green" ""
-}
-
 -- Key binding to toggle the gap for the bar.
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
-main = xmonad =<< statusBar myBar myPP toggleStrutsKey defaults
-
-defaults = ewmh defaultConfig
-    { borderWidth        = 1
+main = do
+    h <- spawnPipe myBar
+    xmonad $ ewmh defaultConfig {
+      borderWidth        = 1
     , terminal           = "roxterm"
     , normalBorderColor  = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
@@ -170,5 +175,5 @@ defaults = ewmh defaultConfig
     , focusFollowsMouse = True
     , workspaces = myWorkspaces
     , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
-    , logHook = myLogHook
+    , logHook = myLogHook h
     }
