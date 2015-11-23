@@ -51,8 +51,8 @@ myWorkspaces = ["1:vim", "2:xterm", show 3, "4:docs", show 5, show 6,
 -- xmobar settings
 myBar = "xmobar"
 myPP h = defaultPP
-    { ppCurrent = xmobarColor "#4060c0" "#000040" . wrap "<" ">"
-    , ppVisible = xmobarColor "#4080ff" "#000040" . wrap "(" ")"
+    { ppCurrent = xmobarColor "#4080ff" "#202020" . wrap "[" "]"
+    , ppVisible = xmobarColor "#20a0ff" "" . wrap "[" "]"
     , ppTitle = xmobarColor "#4080ff" ""
     , ppLayout = return ""
     , ppOutput = hPutStrLn h
