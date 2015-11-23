@@ -1,3 +1,8 @@
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintfull
+
 URxvt*.transparent: true
 URxvt*.shading: 20
 URxvt*termName: screen-256color
