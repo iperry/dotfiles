@@ -267,3 +267,10 @@ alias rm='rm -i'
 # path
 path[1,0]=~/bin
 path[1,0]=~/opt/llvm/bin
+
+# Print sysinfo on arch interactive terminals
+SYSINFO=`which archey3`
+if [[ -e $SYSINFO ]]
+then
+    archey3
+fi
