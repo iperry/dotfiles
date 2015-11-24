@@ -263,6 +263,7 @@ alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset 
 alias vim='nvim'
 alias vm='vim ~/.vimrc'
 alias rm='rm -i'
+alias startx='ssh-agent startx'
 
 # path
 path[1,0]=~/bin
