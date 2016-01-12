@@ -276,5 +276,8 @@ then
     archey3
 fi
 
+# Use clang by default whenever we can
+export CC=clang
+export CXX=clang++
 # Java xmonad shit
 export _JAVA_AWT_WM_NONREPARENTING=1
