@@ -18,6 +18,8 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rhysd/vim-clang-format'
 Plug 'peterhoeg/vim-qml'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " my snippets
 Plug 'iperry/cscope_maps'
@@ -27,7 +29,6 @@ Plug 'iperry/inkpot'
 " lazy load
 Plug 'SirVer/ultisnips', { 'on': [] }
 Plug 'Valloric/YouCompleteMe', { 'on': [] }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTree' }
 call plug#end()
 
 " Basic settings
