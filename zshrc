@@ -1,5 +1,7 @@
-# use antigen-hs for dependency management
-source ~/.zsh/antigen-hs/init.zsh
+# disable antigen-hs by default, use basic set of plugins
+# source ~/.zsh/antigen-hs/init.zsh
+source ~/.zsh/bashmarks.sh
+source ~/.zsh/extract.plugin.zsh
 
 # basic settings
 HISTFILE=~/.histfile
