@@ -17,12 +17,11 @@ bundles =
   [ bundle "Tarrasch/zsh-functional"
   , bundle "Tarrasch/zsh-bd"
   , bundle "zsh-users/zsh-syntax-highlighting"
-  , bundle "zsh-users/zsh-history-substring-search"
+  , (bundle "zsh-users/zsh-history-substring-search")
+      { sourcingStrategy = filePathsSourcingStrategy [ "zsh-history-substring-search.zsh" ] }
   , (bundle "robbyrussell/oh-my-zsh")
       { sourcingStrategy = antigenSourcingStrategy
       , sourcingLocations = [ "plugins/extract" ] }
---  , (bundle "trapd00r/zsh-syntax-highlighting-filetypes")
---      { sourcingStrategy = filePathsSourcingStrategy [ "zsh-syntax-highlighting-filetypes.zsh" ] }
   , (bundle "huyng/bashmarks")
       { sourcingStrategy = filePathsSourcingStrategy [ "bashmarks.sh" ] }
 
