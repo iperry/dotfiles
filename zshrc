@@ -279,5 +279,8 @@ fi
 # Use clang by default whenever we can
 export CC=clang
 export CXX=clang++
+# ccache needs this set for some reason when used with clang
+export CCACHE_CPP2=yes
+
 # Java xmonad shit
 export _JAVA_AWT_WM_NONREPARENTING=1
