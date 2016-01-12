@@ -2,6 +2,7 @@
 # source ~/.zsh/antigen-hs/init.zsh
 source ~/.zsh/bashmarks.sh
 source ~/.zsh/extract.plugin.zsh
+source ~/.zsh/zsh-history-substring-search.zsh
 
 # basic settings
 HISTFILE=~/.histfile
