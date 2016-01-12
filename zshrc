@@ -275,3 +275,6 @@ if [[ -e $SYSINFO ]]
 then
     archey3
 fi
+
+# Java xmonad shit
+export _JAVA_AWT_WM_NONREPARENTING=1
