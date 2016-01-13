@@ -284,6 +284,7 @@ export CC=clang
 export CXX=clang++
 # ccache needs this set for some reason when used with clang
 export CCACHE_CPP2=yes
+export CCACHE_SLOPPINESS=pch_defines,time_macros
 
 # Java xmonad shit
 export _JAVA_AWT_WM_NONREPARENTING=1
