@@ -161,7 +161,7 @@ main = do
     xmonad $
         ewmh defaultConfig
             { borderWidth        = 0
-            , terminal           = "terminator"
+            , terminal           = "roxterm"
             , normalBorderColor  = myNormalBorderColor
             , focusedBorderColor = myFocusedBorderColor
             , modMask = mod4Mask
