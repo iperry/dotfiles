@@ -152,6 +152,10 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
+myManageHook = composeAll [ resource =? "portal"         --> doFloat,
+                            resource =? "gst-launch-1.0" --> doFloat
+                          ] <+> manageDocks
+
 main = do
     h <- spawnPipe myBar
     xmonad $
@@ -161,7 +165,7 @@ main = do
             , normalBorderColor  = myNormalBorderColor
             , focusedBorderColor = myFocusedBorderColor
             , modMask = mod4Mask
-            , manageHook = manageDocks
+            , manageHook = myManageHook
             , keys = myKeys
             , layoutHook = myLayouts
             , startupHook = setWMName "LG3D"
