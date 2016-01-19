@@ -54,7 +54,6 @@ myPP h = defaultPP
     { ppCurrent = xmobarColor "#4080ff" "#202020" . wrap "[" "]"
     , ppVisible = xmobarColor "#20a0ff" "" . wrap "[" "]"
     , ppTitle = xmobarColor "#4080ff" ""
-    , ppLayout = return ""
     , ppOutput = hPutStrLn h
 }
 
