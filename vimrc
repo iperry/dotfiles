@@ -20,6 +20,8 @@ Plug 'rhysd/vim-clang-format'
 Plug 'peterhoeg/vim-qml'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " my snippets
 Plug 'iperry/cscope_maps'
@@ -270,3 +272,7 @@ function! ClangFormatQML()
 endfunction
 nnoremap <Leader>cq :call ClangFormatQML()<cr>
 nnoremap <Leader>cf :ClangFormat<cr>
+
+" fzf
+nnoremap <leader>ff :FZF<CR>
+nnoremap <leader>fb :Buffers<CR>
