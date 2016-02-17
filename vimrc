@@ -131,6 +131,11 @@ set clipboard=unnamedplus
 " ==========================
 " Useful macros
 nnoremap <F8> :r !date<CR>
+nnoremap ;v :next $MYVIMRC<CR>
+augroup VimReload
+  autocmd!
+  autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END
 
 " Diff specific commands
 nnoremap <expr> H &diff ? ':diffget //2<cr>' : 'H'
