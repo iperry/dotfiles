@@ -20,6 +20,7 @@ Plug 'rhysd/vim-clang-format'
 Plug 'peterhoeg/vim-qml'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'lyuts/vim-rtags'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 

@@ -289,6 +289,9 @@ export CCACHE_SLOPPINESS=pch_defines,time_macros
 # Java xmonad shit
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+# rtags
+export USE_RTAGS=1
+
 # fzf
 export FZF_DEFAULT_COMMAND='ag -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
