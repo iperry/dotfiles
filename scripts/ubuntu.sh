@@ -7,8 +7,10 @@ apt-get install wget curl neovim python-dev python-pip python3-dev python3-pip x
 pip install neovim
 
 # fonts:
-wget http://mirrors.kernel.org/ubuntu/pool/universe/f/fonts-hack/fonts-hack-ttf_2.018-1_all.deb -O /tmp/hack.deb
-dpkg -i /tmp/hack.deb
+mkdir -p ~/.fonts
+wget https://github.com/chrissimpkins/Hack/releases/download/v2.019/Hack-v2_019-ttf.zip -O /tmp/hack.zip
+unzip /tmp/hack.zip -d ~/.fonts
+fc-cache -fv
 
 apt-get install zsh
 
@@ -16,3 +18,6 @@ apt-get install zsh
 apt-get install git-core clang ccache
 
 apt-get install cmake
+
+add-apt-repository ppa:h-realh/roxterm
+apt-get install roxterm
