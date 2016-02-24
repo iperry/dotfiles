@@ -290,7 +290,11 @@ export CCACHE_SLOPPINESS=pch_defines,time_macros
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 # rtags
-export USE_RTAGS=1
+HAVE_RTAGS=`which rc`
+if [[ -e $HAVE_RTAGS ]]
+then
+  export USE_RTAGS=1
+fi
 
 # fzf
 export FZF_DEFAULT_COMMAND='ag -g ""'
