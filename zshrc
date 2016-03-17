@@ -6,8 +6,8 @@ source ~/.zsh/zsh-history-substring-search.zsh
 
 # basic settings
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 setopt extendedglob
 setopt share_history
 setopt noautomenu
