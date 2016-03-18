@@ -31,6 +31,7 @@ bindkey '^w' backward-kill-word
 bindkey '^K' kill-line
 bindkey '^r' history-incremental-search-backward
 bindkey '^b' backward-word
+bindkey "^?" backward-delete-char
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey -M vicmd "?" history-incremental-search-backward
