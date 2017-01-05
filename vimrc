@@ -4,7 +4,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'godlygeek/tabular'
 Plug 'airblade/vim-gitgutter'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'rking/ag.vim'
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'embear/vim-localvimrc'
@@ -211,9 +211,8 @@ augroup load_us_ycm
 augroup END
 
 " airline
-let g:airline_section_warning=''
+let g:airline_extensions = ['branch', 'hunks']
 let g:airline_powerline_fonts=1
-
 
 " ag
 if executable('ag')
