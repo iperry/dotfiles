@@ -1,26 +1,17 @@
 call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-surround'
-Plug 'kien/ctrlp.vim'
 Plug 'jlanzarotta/bufexplorer'
-Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
-Plug 'Lokaltog/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
-Plug 'ervandew/supertab'
-Plug 'honza/vim-snippets'
 Plug 'rking/ag.vim'
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'embear/vim-localvimrc'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'jiangmiao/auto-pairs'
 Plug 'rhysd/vim-clang-format'
-Plug 'peterhoeg/vim-qml'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'lyuts/vim-rtags'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -223,8 +214,6 @@ augroup END
 let g:airline_section_warning=''
 let g:airline_powerline_fonts=1
 
-" ctrlp: do not limit scan
-let g:ctrlp_max_files = 0
 
 " ag
 if executable('ag')
@@ -233,12 +222,6 @@ if executable('ag')
 
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag -f %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
 endif
 
 " vim-fugitive
