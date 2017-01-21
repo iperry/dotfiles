@@ -14,6 +14,9 @@ setopt noautomenu
 setopt nomenucomplete
 unsetopt nomatch
 
+# Add _files to basic completer
+zstyle ':completion:*' completer _complete _ignored _files
+
 export EDITOR=nvim
 export TERM=xterm-256color
 
