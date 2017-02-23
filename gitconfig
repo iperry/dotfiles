@@ -1,7 +1,3 @@
-[user]
-   name = Perry Hung
-   email = iperry@gmail.com
-
 [color]
    diff = auto
    status = auto
@@ -24,3 +20,6 @@
 
 [push]
 	default = tracking
+
+[user]
+	useConfigOnly = true
