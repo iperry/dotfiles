@@ -241,7 +241,7 @@ endif
 let g:clang_format#code_style = 'google'
 let g:clang_format#style_options = {
     \ "Standard" : "C++11",
-    \ "DerivePointerAlignment" : "true",
+    \ "DerivePointerAlignment" : "false",
     \ "PointerAlignment" : "Right"}
 function! ClangFormatQML()
   let tmpfile = tempname() . ".js"
