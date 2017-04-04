@@ -238,6 +238,11 @@ if filereadable(s:host_vimrc)
 endif
 
 " clang-format
+let g:clang_format#code_style = 'google'
+let g:clang_format#style_options = {
+    \ "Standard" : "C++11",
+    \ "DerivePointerAlignment" : "true",
+    \ "PointerAlignment" : "Right"}
 function! ClangFormatQML()
   let tmpfile = tempname() . ".js"
   execute 'write ' . tmpfile
