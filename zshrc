@@ -1,3 +1,6 @@
+# Set this on servers to add [PRODUCTION] to prompt
+# PRODUCTION=1
+
 # disable antigen-hs by default, use basic set of plugins
 # source ~/.zsh/antigen-hs/init.zsh
 source ~/.zsh/bashmarks.sh
@@ -225,10 +228,17 @@ function TRAPUSR2 {
 }
 add-zsh-hook precmd _async_git_stat_update
 
-user_host="%F{${green}}%n@%m%{$reset_color%}"
-current_dir="%F{${blue}} %~%{$reset_color%}"
-prompt_time="[%F{${yellow}}%*${reset_color%}]"
-prompt_cursor="zsh▸%{$reset_color%}"
+if [ ! -z ${PRODUCTION} ]; then
+  user_host="%F{${red}}[PRODUCTION]%n@%m%{$reset_color%}"
+  current_dir="%F{${red}} %~%{$reset_color%}"
+  prompt_time="[%F{${red}}%*${reset_color%}]"
+  prompt_cursor="zsh▸%{$reset_color%}"
+else
+  user_host="%F{${blue}}%n@%m%{$reset_color%}"
+  current_dir="%F{${blue}} %~%{$reset_color%}"
+  prompt_time="[%F{${yellow}}%*${reset_color%}]"
+  prompt_cursor="zsh▸%{$reset_color%}"
+fi
 
 PROMPT_BASE='${prompt_time} ${user_host} ${current_dir} ${git_info}
 $(vi_mode_prompt) '
