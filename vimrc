@@ -14,8 +14,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'SirVer/ultisnips'
 
-" my snippets
 Plug 'iperry/cscope_maps'
 Plug 'iperry/snippets'
 Plug 'iperry/inkpot'
@@ -195,6 +195,11 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<S-tab>', '<Up>']
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+
+" ultisnips
+let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " airline
 let g:airline_extensions = ['branch', 'hunks']
