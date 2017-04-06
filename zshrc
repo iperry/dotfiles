@@ -228,13 +228,16 @@ function TRAPUSR2 {
 }
 add-zsh-hook precmd _async_git_stat_update
 
+# Generate a color for user_host based on the hostname
+source ~/.zsh/zsh-hostname-color.zsh
+
 if [ ! -z ${PRODUCTION} ]; then
   user_host="%F{${red}}[PRODUCTION]%n@%m%{$reset_color%}"
   current_dir="%F{${red}} %~%{$reset_color%}"
   prompt_time="[%F{${red}}%*${reset_color%}]"
   prompt_cursor="zsh▸%{$reset_color%}"
 else
-  user_host="%F{${blue}}%n@%m%{$reset_color%}"
+  user_host="${hostname_color}%n@%m%{$reset_color%}"
   current_dir="%F{${blue}} %~%{$reset_color%}"
   prompt_time="[%F{${yellow}}%*${reset_color%}]"
   prompt_cursor="zsh▸%{$reset_color%}"
