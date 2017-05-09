@@ -275,11 +275,13 @@ alias gc=gci
 alias gd='git diff'
 alias gl='git log --stat'
 alias glp='git log --stat -p'
+alias glo='git log --oneline'
 alias gdc='git diff --cached'
 alias gau='git add -u :/'
 alias gca='git commit --amend --verbose'
 alias ga='git add'
 alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias glgh="glg | head"
 alias gcfghome="git config --local user.email \"perry@mosi.io\""
 alias gcfgwork="git config --local user.email \"perry@leaflabs.com\""
 alias vim='nvim'
