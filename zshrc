@@ -319,3 +319,8 @@ fi
 # fzf
 export FZF_DEFAULT_COMMAND='ag -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# rust
+alias cgb='cargo build'
+alias cgr='cargo run'
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
