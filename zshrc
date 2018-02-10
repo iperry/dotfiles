@@ -16,6 +16,8 @@ setopt share_history
 setopt noautomenu
 setopt nomenucomplete
 unsetopt nomatch
+unsetopt BG_NICE
+setopt NO_BG_NICE
 
 # Add _files to basic completer
 zstyle ':completion:*' completer _complete _ignored _files
