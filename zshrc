@@ -18,6 +18,10 @@ setopt nomenucomplete
 unsetopt nomatch
 unsetopt BG_NICE
 setopt NO_BG_NICE
+# no beeps
+setopt no_beep
+setopt NO_LIST_BEEP
+set bell-style none
 
 # Add _files to basic completer
 zstyle ':completion:*' completer _complete _ignored _files
