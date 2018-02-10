@@ -8,7 +8,6 @@ colors
 setopt prompt_subst
 
 colnames=(
-	black
 	red
 	green
 	yellow
@@ -16,7 +15,6 @@ colnames=(
 	magenta
 	cyan
 	white
-	default
 )
 
 # Create color variables for foreground and background colors
