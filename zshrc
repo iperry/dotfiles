@@ -332,3 +332,7 @@ export FZF_DEFAULT_COMMAND='rg --files'
 alias cgb='cargo build'
 alias cgr='cargo run'
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+
+# Scale UI. If Xft.dpi is set, undo scaling of text with DPI_SCALE
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
