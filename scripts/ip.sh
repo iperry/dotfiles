@@ -1,2 +1,2 @@
 #!/bin/sh
-ip route list | grep default | cut -d ' ' -f11
+ip route list | grep default | cut -d ' ' -f9
