@@ -56,8 +56,9 @@ set number
 set relativenumber
 
 " folding
- set foldminlines=0
- set foldnestmax=1
+set foldminlines=0
+set foldnestmax=1
+set nofoldenable
 
 " search options: highlight search, incremental search
 set hlsearch
