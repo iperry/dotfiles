@@ -9,6 +9,7 @@
 [core]
    pager = less -FRSX
    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+   autocrlf = input
 
 [alias]
    ci = commit -v
