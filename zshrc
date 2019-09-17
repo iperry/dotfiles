@@ -295,6 +295,7 @@ alias vm='vim ~/.vimrc'
 alias rm='rm -i'
 alias startx='ssh-agent -t 4h startx'
 alias nj='ninja'
+alias ll='ls -l'
 
 # path
 path[1,0]=~/bin
