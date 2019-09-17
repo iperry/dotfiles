@@ -290,6 +290,7 @@ alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset 
 alias glgh="glg | head"
 alias gcfghome="git config --local user.email \"perry@mosi.io\""
 alias gcfgwork="git config --local user.email \"perry@leaflabs.com\""
+alias gcfggenrad="git config --local user.email \"perry@genrad.io\""
 alias vim='nvim'
 alias vm='vim ~/.vimrc'
 alias rm='rm -i'
