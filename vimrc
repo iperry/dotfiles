@@ -35,9 +35,12 @@ scriptencoding utf-8
 set lazyredraw
 
 " turn off backups
-set nobackup
-set nowb
-set noswapfile
+if !isdirectory($HOME."/.config/nvim/backupdir")
+  silent! execute "!mkdir ~/.config/nvim/backupdir"
+endif
+set backupdir=~/.config/nvim/backupdir
+set directory=~/.config/nvim/backupdir
+set undodir=~/.config/nvim/backupdir
 
 " nice big viminfo file
 set viminfo='1000,f1,:1000,/1000
