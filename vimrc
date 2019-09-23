@@ -231,6 +231,7 @@ nnoremap <Leader>gr :Git! diff --staged<cr>
 
 " tabularize
 vnoremap <Leader>tn :'<,'>Tabularize /(/l4r0<cr>
+vnoremap <Leader>t= :'<,'>Tabularize /=/l1r1<cr>
 
 " vim-diff-enhanced
 " use patience diff by default
