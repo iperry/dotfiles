@@ -202,6 +202,7 @@ let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<S-tab>', '<Up>']
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 nnoremap <Leader>gt :YcmCompleter GoTo<CR>
+nnoremap <Leader>fx :YcmCompleter FixIt<CR>
 
 let g:ycm_rust_src_path = $RUST_SRC_PATH
 
