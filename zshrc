@@ -299,6 +299,7 @@ alias nj='ninja'
 alias ll='ls -l'
 
 # path
+path[1,0]=~/.local/bin
 path[1,0]=~/bin
 path[1,0]=~/opt/llvm/bin
 
