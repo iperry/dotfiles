@@ -260,6 +260,7 @@ function! ClangFormatQML()
 endfunction
 nnoremap <Leader>cq :call ClangFormatQML()<cr>
 nnoremap <Leader>cf :ClangFormat<cr>
+vnoremap <Leader>cf :ClangFormat<cr>
 
 " fzf
 nnoremap <leader>ff :FZF<CR>
