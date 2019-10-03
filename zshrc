@@ -339,3 +339,6 @@ export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 # Scale UI. If Xft.dpi is set, undo scaling of text with DPI_SCALE
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
+
+NPROCS=`grep -c processor /proc/cpuinfo`
+export MAKEFLAGS=-j${NPROCS}
