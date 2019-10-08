@@ -25,3 +25,6 @@
 [user]
    useConfigOnly = true
    name = Perry Hung
+
+[alias]
+   fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
