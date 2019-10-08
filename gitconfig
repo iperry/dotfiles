@@ -20,8 +20,8 @@
    tool = meld
 
 [push]
-	default = tracking
+   default = tracking
 
 [user]
-	useConfigOnly = true
-	name = Perry Hung
+   useConfigOnly = true
+   name = Perry Hung
