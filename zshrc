@@ -279,6 +279,7 @@ alias vi='vim'
 alias gci='git commit --verbose'
 alias gc=gci
 alias gd='git diff'
+alias gfx='git fixup'
 alias gl='git log --stat'
 alias glp='git log --stat -p'
 alias glo='git log --oneline'
