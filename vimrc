@@ -136,6 +136,7 @@ augroup VimReload
   autocmd!
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
+nnoremap <Leader>vr :source $MYVIMRC<CR>
 
 " Diff specific commands
 nnoremap <expr> H &diff ? ':diffget //2<cr>' : 'H'
