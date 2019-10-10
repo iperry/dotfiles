@@ -340,5 +340,12 @@ export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
 
-NPROCS=`grep -c processor /proc/cpuinfo`
+case `uname` in
+  Darwin)
+    NPROCS=`sysctl -n hw.ncpu`
+  ;;
+  Linux)
+    NPROCS=`grep -c processor /proc/cpuinfo`
+  ;;
+esac
 export MAKEFLAGS=-j${NPROCS}
