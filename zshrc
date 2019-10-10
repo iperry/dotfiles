@@ -352,3 +352,6 @@ case `uname` in
   ;;
 esac
 export MAKEFLAGS=-j${NPROCS}
+
+# googletest
+export GTEST_COLOR=1
