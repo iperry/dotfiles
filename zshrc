@@ -26,7 +26,10 @@ set bell-style none
 # Add _files to basic completer
 zstyle ':completion:*' completer _complete _ignored _files
 
+# vim
 export EDITOR=nvim
+export MYVIMRC=~/dotfiles/vimrc
+
 export TERM=xterm-256color
 
 # locale
@@ -293,7 +296,7 @@ alias gcfghome="git config --local user.email \"perry@mosi.io\""
 alias gcfgwork="git config --local user.email \"perry@leaflabs.com\""
 alias gcfggenrad="git config --local user.email \"perry@genrad.io\""
 alias vim='nvim'
-alias vm='vim ~/.config/nvim/init.vim'
+alias vm='vim $MYVIMRC'
 alias rm='rm -i'
 alias startx='ssh-agent -t 4h startx'
 alias nj='ninja'
