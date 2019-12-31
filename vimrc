@@ -190,6 +190,10 @@ endif
 " line wrap
 set textwidth=80
 
+" open vimrc
+nnoremap <F12> :e $MYVIMRC<CR>
+nnoremap <leader>r :source $MYVIMRC<CR>
+
 " print ex command to buffer
 function! TabMessage(cmd)
   redir => message
