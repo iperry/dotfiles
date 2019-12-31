@@ -270,7 +270,7 @@ ls --color=auto &> /dev/null && alias ls='ls --color=auto' ||
 export GREP_OPTIONS='--color=auto'
 
 # aliases
-alias zm='vim ~/.zshrc; . ~/.zshrc'
+alias zm='vim ~/dotfiles/zshrc; . ~/dotfiles/zshrc'
 alias zrl='. ~/.zshrc'
 alias saved='echo `pwd` > ~/.savedir'
 alias showd='cat ~/.savedir'
