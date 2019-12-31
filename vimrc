@@ -190,6 +190,19 @@ endif
 " line wrap
 set textwidth=80
 
+" print ex command to buffer
+function! TabMessage(cmd)
+  redir => message
+  silent execute a:cmd
+  redir END
+  if empty(message)
+    echoerr "no output"
+  else
+    silent put=message
+  endif
+endfunction
+command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
+
 " Filetype-specific autocmds
 " ==========================
 
