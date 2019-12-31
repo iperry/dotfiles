@@ -187,6 +187,9 @@ if has('nvim')
     tnoremap <F1> <C-\><C-n>
 endif
 
+" line wrap
+set textwidth=80
+
 " Filetype-specific autocmds
 " ==========================
 
