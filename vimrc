@@ -1,6 +1,7 @@
 call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-speeddating'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'godlygeek/tabular'
 Plug 'airblade/vim-gitgutter'
@@ -16,6 +17,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'rust-lang/rust.vim'
+Plug 'jceb/vim-orgmode'
 
 Plug 'iperry/cscope_maps'
 Plug 'iperry/snippets'
@@ -269,3 +271,7 @@ vnoremap <Leader>cf :ClangFormat<cr>
 " fzf
 nnoremap <leader>ff :FZF<CR>
 nnoremap <leader>fb :Buffers<CR>
+
+" org-mode
+autocmd FileType org nmap <buffer> <silent> <leader>O <Plug>OrgNewHeadingAboveNormal
+autocmd FileType org nmap <buffer> <silent> <leader>o <Plug>OrgNewHeadingBelowAfterChildrenNormal
