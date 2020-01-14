@@ -266,10 +266,8 @@ export LSCOLORS=Exfxcxdxbxegedabagacad
 export LS_OPTIONS='--color=auto'
 ls --color=auto &> /dev/null && alias ls='ls --color=auto' ||
 
-# Colors for grep
-export GREP_OPTIONS='--color=auto'
-
 # aliases
+alias grep='grep --color'
 alias zm='vim ~/dotfiles/zshrc; . ~/dotfiles/zshrc'
 alias zrl='. ~/.zshrc'
 alias saved='echo `pwd` > ~/.savedir'
