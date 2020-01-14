@@ -266,39 +266,41 @@ export LSCOLORS=Exfxcxdxbxegedabagacad
 export LS_OPTIONS='--color=auto'
 
 # aliases
-alias grep='grep --color'
-alias zm='vim ~/dotfiles/zshrc; . ~/dotfiles/zshrc'
-alias zrl='. ~/.zshrc'
-alias saved='echo `pwd` > ~/.savedir'
-alias showd='cat ~/.savedir'
+alias cgb='cargo build'
+alias cgr='cargo run'
+alias ga='git add'
+alias gau='git add -u :/'
+alias gc=gci
+alias gca='git commit --amend --verbose'
+alias gcfggenrad='git config --local user.email "perry@genrad.io"'
+alias gcfghome='git config --local user.email "perry@mosi.io"'
+alias gcfgwork='git config --local user.email "perry@leaflabs.com"'
+alias gci='git commit --verbose'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gfx='git fixup'
+alias gl='git log --stat'
+alias glg='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit --date=relative'
+alias glgh='glg | head'
+alias glo='git log --oneline'
+alias glp='git log --stat -p'
 alias god='cd `cat ~/.savedir`'
 alias gs='git status'
 alias gsa='git stash apply'
 alias gst='git stash'
-alias vi='vim'
-alias gci='git commit --verbose'
-alias gc=gci
-alias gd='git diff'
-alias gfx='git fixup'
-alias gl='git log --stat'
-alias glp='git log --stat -p'
-alias glo='git log --oneline'
-alias gdc='git diff --cached'
-alias gau='git add -u :/'
-alias gca='git commit --amend --verbose'
-alias ga='git add'
-alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-alias glgh="glg | head"
-alias gcfghome="git config --local user.email \"perry@mosi.io\""
-alias gcfgwork="git config --local user.email \"perry@leaflabs.com\""
-alias gcfggenrad="git config --local user.email \"perry@genrad.io\""
-alias ls='ls --color=auto'
-alias vim='nvim'
-alias vm='vim $MYVIMRC'
-alias rm='rm -i'
-alias startx='ssh-agent -t 4h startx'
-alias nj='ninja'
 alias ll='ls -l'
+alias ls='ls --color=auto'
+alias nj=ninja
+alias rm='rm -i'
+alias saved='echo `pwd` > ~/.savedir'
+alias showd='cat ~/.savedir'
+alias startx='ssh-agent -t 4h startx'
+alias vi=vim
+alias vim=nvim
+alias vm='vim $MYVIMRC'
+alias x=extract
+alias zm='vim ~/dotfiles/zshrc; . ~/dotfiles/zshrc'
+alias zrl='. ~/.zshrc'
 
 # path
 path[1,0]=~/.local/bin
