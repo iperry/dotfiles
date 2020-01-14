@@ -264,7 +264,6 @@ export LESS=-Ri
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad
 export LS_OPTIONS='--color=auto'
-ls --color=auto &> /dev/null && alias ls='ls --color=auto' ||
 
 # aliases
 alias grep='grep --color'
@@ -293,6 +292,7 @@ alias glgh="glg | head"
 alias gcfghome="git config --local user.email \"perry@mosi.io\""
 alias gcfgwork="git config --local user.email \"perry@leaflabs.com\""
 alias gcfggenrad="git config --local user.email \"perry@genrad.io\""
+alias ls='ls --color=auto'
 alias vim='nvim'
 alias vm='vim $MYVIMRC'
 alias rm='rm -i'
