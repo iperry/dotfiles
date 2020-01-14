@@ -305,11 +305,13 @@ path[1,0]=~/.local/bin
 path[1,0]=~/bin
 path[1,0]=~/opt/llvm/bin
 
-# Print sysinfo on arch interactive terminals
-SYSINFO=`which archey3`
-if [[ -e $SYSINFO ]]
+# Print friendly MOTD on interactive terminals
+if [ -x "$(command -v archey3)" ] && \
+   [ -x "$(command -v fortune)" ] && \
+   [ -x "$(command -v cowsay)" ];
 then
     archey3
+    fortune | cowsay -W 40 -s
 fi
 
 # Use clang by default whenever we can
