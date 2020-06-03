@@ -14,7 +14,6 @@ colnames=(
 	blue
 	magenta
 	cyan
-	white
 )
 
 # Create color variables for foreground and background colors
@@ -30,7 +29,8 @@ function _hostname_color() {
 		(( chash += #letter ))
 	end
 	local crand=$(( $chash % $#colnames ))
-	local crandname=$colnames[$crand]
+  let i=$crand+1
+	local crandname=$colnames[$i]
 	echo "%{${fg[$crandname]}%}"
 }
 hostname_color=$(_hostname_color)
