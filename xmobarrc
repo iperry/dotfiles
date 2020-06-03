@@ -1,16 +1,22 @@
 Config {
-    font = "xft:Bitstream Vera Sans Mono:size=12:bold:antialias=true",
+    font = "xft:Bitstream Vera Sans Mono:size=9:bold:antialias=true",
     bgColor = "#10101000",
     fgColor = "grey",
-    position = Static { xpos = 0 , ypos = 0, width = 3725, height = 20},
+    position = Static { xpos = 0 , ypos = 0, width = 3640, height = 20},
     commands = [
         Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10,
         Run Com "ip.sh" [] "ip" 60,
-        Run Network "net0" ["-L","0","-H","70","--normal","green","--high","red"] 10,
+        Run Network "eno1" [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
+                           , "--Low"      , "1000"       -- units: B/s
+                           , "--High"     , "5000"       -- units: B/s
+                           , "--low"      , "darkgreen"
+                           , "--normal"   , "darkorange"
+                           , "--high"     , "darkred"
+                           ] 10,
         Run Memory ["-t","Mem: <usedratio>%"] 10,
         Run Date "%a %b %_d %l:%M:%S" "date" 10,
         Run StdinReader],
     sepChar = "%",
     alignSep = "}{",
-    template = " %StdinReader%}{<fc=grey>IP: %ip% %cpu%</fc> <fc=grey>%memory% %net0%</fc> <fc=#ee9a00>%date%</fc>"
+    template = " %StdinReader%}{<fc=grey>IP: %ip% %cpu%</fc> <fc=grey>%memory% %eno1%</fc> <fc=#ee9a00>%date%</fc>"
 }
