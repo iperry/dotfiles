@@ -36,7 +36,6 @@ myTabTheme = theme wfarrTheme
 
 gapWidth = 15
 myLayouts = boringWindows $
-    lessBorders OnlyFloat $
     noBorders $
     (rtall ||| tabbed' ||| Full ||| float)
   where
