@@ -56,6 +56,9 @@ filetype indent on
 " modelines are dumb
 set nomodeline
 
+" flush to disk on write
+set fsync
+
 " relative line numbers
 set number
 set relativenumber
