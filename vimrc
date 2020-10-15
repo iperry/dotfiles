@@ -109,6 +109,9 @@ set formatoptions=tcqr
 set listchars=tab:▸\ ,eol:¬
 set fillchars=fold:\ ,diff:\ 
 
+" retain default vim compatibility
+set startofline
+
 " Highlight our cursor line
 set cursorline
 
