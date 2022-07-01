@@ -18,13 +18,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'rust-lang/rust.vim'
 Plug 'jceb/vim-orgmode'
+Plug 'jremmen/vim-ripgrep'
 
 Plug 'iperry/cscope_maps'
 Plug 'iperry/snippets'
 Plug 'iperry/inkpot'
-
-" lazy load
-Plug 'Valloric/YouCompleteMe'
 
 Plug 'nvim-treesitter/nvim-treesitter'
 
@@ -35,6 +33,13 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+
+" LSP
+Plug 'neovim/nvim-lsp'
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+
+
 call plug#end()
 
 " Basic settings
@@ -235,19 +240,6 @@ autocmd FileType c,cpp setlocal foldmethod=indent
 
 " Plugin configuration
 " ====================
-" YCM
-let g:ycm_smart_case = 0
-let g:ycm_confirm_extra_conf = 1
-let g:ycm_extra_conf_globlist = ['~/work/*', '!~/*']
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<S-tab>', '<Up>']
-nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-nnoremap <Leader>gt :YcmCompleter GoTo<CR>
-nnoremap <Leader>fx :YcmCompleter FixIt<CR>
-
-let g:ycm_rust_src_path = $RUST_SRC_PATH
-
 " ultisnips
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -406,6 +398,59 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
+-- Setup lspconfig.
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wl', function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, bufopts)
+  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+end
+
+local lspconfig = require('lspconfig')
+require'lspconfig'.clangd.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd =  { 'clangd',
+           '--query-driver',
+           '/home/perry/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-*',
+  },
+  root_dir = lspconfig.util.root_pattern(
+          'compile_commands.json',
+          'build/compile_commands.json')
+--          '.clangd',
+--          '.clang-tidy',
+--          '.clang-format',
+--          'compile_flags.txt',
+--          'configure.ac',
+--          '.git')
+}
+
 
 
 EOF
