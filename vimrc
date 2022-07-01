@@ -39,7 +39,7 @@ Plug 'neovim/nvim-lsp'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 
-
+Plug 'olimorris/onedarkpro.nvim'
 call plug#end()
 
 " Basic settings
@@ -398,6 +398,7 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
+
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local opts = { noremap=true, silent=true }
@@ -451,6 +452,15 @@ require'lspconfig'.clangd.setup{
 --          '.git')
 }
 
-
+local onedarkpro = require('onedarkpro')
+onedarkpro.setup({
+  theme = 'onedark_dark',
+  colors = {
+    onedark_dark = {
+      bg = "#111111"
+    }
+  }
+})
+require('onedarkpro').load()
 
 EOF
