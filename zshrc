@@ -294,7 +294,6 @@ alias nj=ninja
 alias rm='rm -i'
 alias saved='echo `pwd` > ~/.savedir'
 alias showd='cat ~/.savedir'
-alias startx='ssh-agent -t 4h startx'
 alias vi=vim
 alias vim=nvim
 alias vm='vim $MYVIMRC'
@@ -360,3 +359,7 @@ export MAKEFLAGS=-j${NPROCS}
 
 # googletest
 export GTEST_COLOR=1
+
+# SSH agent
+# https://wiki.archlinux.org/title/SSH_keys#Start_ssh-agent_with_systemd_user
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"

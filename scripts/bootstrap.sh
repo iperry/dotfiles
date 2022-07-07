@@ -39,3 +39,6 @@ link_dotfile tmux.conf $HOME/.tmux.conf
 
 # kitty
 link_dotfile kitty.conf $HOME/.config/kitty/kitty.conf
+
+# ssh-agent
+link_dotfile ssh-agent.service $HOME/.config/systemd/user/ssh-agent.service
