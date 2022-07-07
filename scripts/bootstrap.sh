@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
-
 DOTFILES_DIR=$HOME/dotfiles
-
 link_dotfile () {
   src=$DOTFILES_DIR/$1
   target=$2
+  d="$(dirname $2)"
+  set -x
+  mkdir -p $d
   ln -sf $src $target
+  set +x
 }
 
 echo $DOTFILES_DIR
