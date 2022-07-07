@@ -36,3 +36,6 @@ link_dotfile xmonad.hs $HOME/.xmonad/xmonad.hs
 
 # tmux
 link_dotfile tmux.conf $HOME/.tmux.conf
+
+# kitty
+link_dotfile kitty.conf $HOME/.config/kitty/kitty.conf
