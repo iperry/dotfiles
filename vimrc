@@ -44,7 +44,6 @@ set fileencodings=ucs-bom,utf-8,latin1
 set fileformat=unix
 set fileformats=unix,dos
 scriptencoding utf-8
-set lazyredraw
 
 " turn off backups
 if !isdirectory($HOME."/.config/nvim/backupdir")
