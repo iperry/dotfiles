@@ -212,6 +212,12 @@ set textwidth=80
 nnoremap <F12> :e $MYVIMRC<CR>
 nnoremap <leader>r :source $MYVIMRC<CR>
 
+" Resize buffers
+nnoremap _ :resize -1<CR>
+nnoremap + :resize +1<CR>
+nnoremap <lt> :vertical resize -1<CR>
+nnoremap > :vertical resize +1<CR>
+
 " print ex command to buffer
 function! TabMessage(cmd)
   redir => message
