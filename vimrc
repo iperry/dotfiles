@@ -208,6 +208,9 @@ if has('nvim')
     tnoremap <F1> <C-\><C-n>
 endif
 
+" unmap help
+nnoremap <F1> <Nop>
+
 " line wrap
 set textwidth=80
 
