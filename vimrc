@@ -1,12 +1,8 @@
 call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-speeddating'
-Plug 'jlanzarotta/bufexplorer'
 Plug 'godlygeek/tabular'
-Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
-Plug 'rking/ag.vim'
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'embear/vim-localvimrc'
 Plug 'ntpeters/vim-better-whitespace'
@@ -17,7 +13,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'rust-lang/rust.vim'
-Plug 'jceb/vim-orgmode'
 Plug 'jremmen/vim-ripgrep'
 
 Plug 'iperry/cscope_maps'
