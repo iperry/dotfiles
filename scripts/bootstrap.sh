@@ -31,3 +31,6 @@ link_dotfile xinitrc $HOME/.xinitrc
 mkdir -p ~/.xmonad/
 link_dotfile xmobarrc $HOME/.xmobarrc
 link_dotfile xmonad.hs $HOME/.xmonad/xmonad.hs
+
+# tmux
+link_dotfile tmux.conf $HOME/.tmux.conf
