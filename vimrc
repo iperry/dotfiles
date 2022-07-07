@@ -35,6 +35,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 
 Plug 'olimorris/onedarkpro.nvim'
+Plug 'folke/tokyonight.nvim'
 call plug#end()
 
 " Basic settings
@@ -461,15 +462,12 @@ require'lspconfig'.clangd.setup{
 --          '.git')
 }
 
-local onedarkpro = require('onedarkpro')
-onedarkpro.setup({
-  theme = 'onedark_dark',
-  colors = {
-    onedark_dark = {
-      bg = "#111111"
-    }
-  }
-})
-require('onedarkpro').load()
+ vim.g.tokyonight_style = "night"
+ vim.g.tokyonight_colors = {
+   bg = "#0c0c0c",
+   fg = "#eeeeee",
+   comment = "#cd8b00",
+ }
+ vim.cmd[[colorscheme tokyonight]]
 
 EOF
