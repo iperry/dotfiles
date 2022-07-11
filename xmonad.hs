@@ -9,6 +9,8 @@ import System.Exit
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.WindowNavigation
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.StatusBar
+import XMonad.Hooks.StatusBar.PP
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.NoBorders
@@ -48,17 +50,13 @@ myWorkspaces = ["1:vim", "2:xterm", show 3, "4:docs", show 5, show 6,
                 "7:www", "8:email", "9:irc", "10:misc"]
 
 -- xmobar settings
-myBar = "xmobar"
-myPP h = defaultPP
+myXmobarPP = def
     { ppCurrent = xmobarColor "#4080ff" "#202020" . wrap "[" "]"
     , ppVisible = xmobarColor "#20a0ff" "" . wrap "[" "]"
     , ppTitle = xmobarColor "#4080ff" ""
-    , ppOutput = hPutStrLn h
 }
 
-myLogHook h = composeAll [ fadeInactiveLogHook 0.9
-                         , dynamicLogWithPP $ myPP h
-                         ]
+myLogHook = fadeInactiveLogHook 0.9
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -155,21 +153,23 @@ myManageHook = composeAll [ resource =? "portal"         --> doFloat,
                             resource =? "gst-launch-1.0" --> doFloat
                           ] <+> manageDocks
 
-main = do
-    h <- spawnPipe myBar
-    xmonad $
-        ewmh defaultConfig
-            { borderWidth        = 0
-            , terminal           = "kitty"
-            , normalBorderColor  = myNormalBorderColor
-            , focusedBorderColor = myFocusedBorderColor
-            , modMask = mod4Mask
-            , manageHook = myManageHook
-            , keys = myKeys
-            , layoutHook = myLayouts
-            , startupHook = setWMName "LG3D"
-            , focusFollowsMouse = True
-            , workspaces = myWorkspaces
-            , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
-            , logHook = myLogHook h
-            }
+myConfig = def
+    { borderWidth        = 5
+    , terminal           = "kitty"
+    , normalBorderColor  = myNormalBorderColor
+    , focusedBorderColor = myFocusedBorderColor
+    , modMask = mod4Mask
+    , manageHook = myManageHook
+    , keys = myKeys
+    , layoutHook = myLayouts
+    , logHook = myLogHook
+    , startupHook = setWMName "LG3D"
+    , focusFollowsMouse = True
+    , workspaces = myWorkspaces
+    }
+
+main = xmonad
+    $ ewmhFullscreen
+    $ ewmh
+    $ withEasySB (statusBarProp "xmobar" (pure myXmobarPP)) defToggleStrutsKey
+    $ myConfig

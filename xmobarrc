@@ -1,4 +1,5 @@
 Config {
+    overrideRedirect = False,
     font = "xft:Bitstream Vera Sans Mono:size=9:bold:antialias=true",
     bgColor = "#10101000",
     fgColor = "grey",
@@ -15,8 +16,8 @@ Config {
                            ] 10,
         Run Memory ["-t","Mem: <usedratio>%"] 10,
         Run Date "%a %b %_d %l:%M:%S" "date" 10,
-        Run StdinReader],
+        Run XMonadLog],
     sepChar = "%",
     alignSep = "}{",
-    template = " %StdinReader%}{<fc=grey>IP: %ip% %cpu%</fc> <fc=grey>%memory% %eno1%</fc> <fc=#ee9a00>%date%</fc>"
+    template = " %XMonadLog%}{<fc=grey>IP: %ip% %cpu%</fc> <fc=grey>%memory% %eno1%</fc> <fc=#ee9a00>%date%</fc>"
 }
