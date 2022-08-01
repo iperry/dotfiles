@@ -301,11 +301,6 @@ alias x=extract
 alias zm='vim ~/dotfiles/zshrc; . ~/dotfiles/zshrc'
 alias zrl='. ~/.zshrc'
 
-# path
-path[1,0]=~/.local/bin
-path[1,0]=~/bin
-path[1,0]=~/opt/llvm/bin
-
 # Print friendly MOTD on interactive terminals
 if [ -x "$(command -v archey3)" ] && \
    [ -x "$(command -v fortune)" ] && \
@@ -363,3 +358,13 @@ export GTEST_COLOR=1
 # SSH agent
 # https://wiki.archlinux.org/title/SSH_keys#Start_ssh-agent_with_systemd_user
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# prepend path
+path=("$HOME/.local/bin" $path)
+path=("$HOME/bin" $path)
+
+# append
+path+=("$HOME/.cargo/bin")
+
+# remove duplicates
+typeset -U PATH
