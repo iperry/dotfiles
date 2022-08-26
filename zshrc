@@ -21,7 +21,7 @@ setopt NO_BG_NICE
 # no beeps
 setopt no_beep
 setopt NO_LIST_BEEP
-set bell-style none
+unsetopt BEEP
 
 # Add _files to basic completer
 zstyle ':completion:*' completer _complete _ignored _files
@@ -339,8 +339,9 @@ if [[ -x $(command -v rustc) ]] then
 fi
 
 # Scale UI. If Xft.dpi is set, undo scaling of text with DPI_SCALE
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.5
+# export GDK_SCALE=2
+# export GDK_DPI_SCALE=0.5
+# export QT_AUTO_SCREEN_SCALE_FACTOR=2
 
 case `uname` in
   Darwin)
@@ -364,6 +365,9 @@ path=("$HOME/.local/bin" $path)
 path=("$HOME/bin" $path)
 
 # append
+path+=("/opt/Xilinx/Vivado/2020.1/bin")
+path+=("/home/perry/opt/tools/common/petalinux/bin")
+path+=("/opt/cuda/bin")
 path+=("$HOME/.cargo/bin")
 
 # remove duplicates
