@@ -5,15 +5,28 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-pulseaudio-ctl $1
+case $1 in
+  up)
+    pactl set-sink-volume @DEFAULT_SINK@ +2%
+    ;;
+  down)
+    pactl set-sink-volume @DEFAULT_SINK@ -2%
+    ;;
+  mute)
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+    ;;
 
-PULSEAUDIO_STATUS="$(pulseaudio-ctl full-status)"
-VOL="$(echo $PULSEAUDIO_STATUS | awk '{print $1}')"
-SINK_MUTE="$(echo $PULSEAUDIO_STATUS | awk '{print $2}')"
-SOURCE_MUTE="$(echo $PULSEAUDIO_STATUS | awk '{print $3}')"
+  *)
+    echo "Usage: $0 <up|down|mute>"
+    exit
+    ;;
+esac
+
+SINK_MUTE=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
 
 if [ $SINK_MUTE = "yes" ]; then
     volnoti-show -m
 else
+    VOL=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}')
     volnoti-show $VOL
 fi
