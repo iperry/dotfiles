@@ -30,9 +30,9 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
 " LSP
-Plug 'neovim/nvim-lsp'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
 
 Plug 'olimorris/onedarkpro.nvim'
 Plug 'folke/tokyonight.nvim'
@@ -460,6 +460,13 @@ require'lspconfig'.clangd.setup{
 --          'compile_flags.txt',
 --          'configure.ac',
 --          '.git')
+}
+
+require("mason").setup()
+require("mason-lspconfig").setup()
+require'lspconfig'.rust_analyzer.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
 }
 
  vim.g.tokyonight_style = "night"
