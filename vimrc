@@ -94,7 +94,7 @@ set expandtab
 set smarttab
 
 " readline-like tab completion
-set wildmode=longest,list
+set wildmode=longest:full
 set wildmenu
 
 " show partial commands in the last line of the screen
