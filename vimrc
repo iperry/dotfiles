@@ -409,7 +409,7 @@ cmp.setup.cmdline(':', {
 })
 
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
@@ -440,11 +440,10 @@ local on_attach = function(client, bufnr)
   -- fixits
   vim.keymap.set('n', '<Leader>fx', vim.lsp.buf.code_action, bufopts)
   -- show full line diagnostic
-  vim.keymap.set('n', '<Leader>e', vim.lsp.diagnostic.show_line_diagnostics,
-  bufopts)
+  vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float, bufopts)
 
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
 local lspconfig = require('lspconfig')
@@ -466,9 +465,7 @@ require'lspconfig'.clangd.setup{
 --          '.git')
 }
 
-require("mason").setup()
-require("mason-lspconfig").setup()
-require'lspconfig'.rust_analyzer.setup{
+require('lspconfig').rust_analyzer.setup{
   on_attach = on_attach,
   capabilities = capabilities,
 }
