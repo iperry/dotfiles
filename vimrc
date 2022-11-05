@@ -19,7 +19,7 @@ Plug 'iperry/cscope_maps'
 Plug 'iperry/snippets'
 Plug 'iperry/inkpot'
 
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " completion
 Plug 'hrsh7th/nvim-cmp'
@@ -319,6 +319,8 @@ require'nvim-treesitter.configs'.setup {
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
+
+  auto_install = true,
 
   -- List of parsers to ignore installing (for "all")
   ignore_install = { },
