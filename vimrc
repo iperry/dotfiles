@@ -451,8 +451,7 @@ require'lspconfig'.clangd.setup{
   on_attach = on_attach,
   capabilities = capabilities,
   cmd =  { 'clangd',
-           '--query-driver',
-           '/home/perry/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-*',
+           '--query-driver=/home/perry/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-*',
   },
   root_dir = lspconfig.util.root_pattern(
           'compile_commands.json',
