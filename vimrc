@@ -470,13 +470,15 @@ require('lspconfig').rust_analyzer.setup{
   capabilities = capabilities,
 }
 
- vim.g.tokyonight_style = "night"
- vim.g.tokyonight_colors = {
-   bg = "#0c0c0c",
-   fg = "#eeeeee",
-   comment = "#cd8b00",
- }
- vim.cmd[[colorscheme tokyonight]]
+ require("tokyonight").setup({
+  style = "night",
+  on_colors = function(colors)
+    colors.bg = "#0c0c0c"
+    colors.fg = "#eeeeee"
+    colors.comment = "#cd8b00"
+  end
+ })
+vim.cmd[[colorscheme tokyonight-night]]
 
 require('orgmode').setup_ts_grammar()
 
