@@ -443,7 +443,7 @@ local on_attach = function(client, bufnr)
   -- show full line diagnostic
   vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float, bufopts)
 
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<Leader>gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
