@@ -17,7 +17,6 @@ Plug 'jremmen/vim-ripgrep'
 
 Plug 'iperry/cscope_maps'
 Plug 'iperry/snippets'
-Plug 'iperry/inkpot'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -138,7 +137,6 @@ autocmd FilterWritePre * setlocal nocursorline
 " colors
 syntax on
 set background=dark
-colorscheme inkpot
 
 " Single space after period when joining
 set nojoinspaces
