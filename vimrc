@@ -80,7 +80,10 @@ set relativenumber
 set foldminlines=0
 set foldnestmax=1
 set foldlevel=99
-set nofoldenable
+set nofoldenable            " disable folding
+au WinEnter * set nofen     " really disable folding
+au WinLeave * set nofen
+set diffopt+=context:99999  " really really disable folding
 
 " search options: highlight search, incremental search
 set hlsearch
