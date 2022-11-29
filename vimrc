@@ -38,6 +38,7 @@ Plug 'neovim/nvim-lspconfig'
 
 Plug 'olimorris/onedarkpro.nvim'
 Plug 'folke/tokyonight.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 call plug#end()
 
 " Basic settings
@@ -496,5 +497,5 @@ require('orgmode').setup({
   org_default_notes_file = '~/Dropbox/org/refile.org',
 })
 
-
+require('gitsigns').setup()
 EOF
