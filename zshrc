@@ -303,6 +303,7 @@ alias vm='vim $MYVIMRC'
 alias x=extract
 alias zm='vim ~/dotfiles/zshrc; . ~/dotfiles/zshrc'
 alias zrl='. ~/.zshrc'
+alias dw='diceware --no-caps -d " " -n 5'
 
 # Print friendly MOTD on interactive terminals
 if [ -x "$(command -v archey3)" ] && \
