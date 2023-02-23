@@ -375,3 +375,6 @@ path+=("$HOME/.cargo/bin")
 
 # remove duplicates
 typeset -U PATH
+
+# minicom
+export MINICOM='-c on'
