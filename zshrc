@@ -247,7 +247,7 @@ if [ ! -z ${PRODUCTION} ]; then
   user_host="%F{${red}}[PRODUCTION]%n@%m%{$reset_color%}"
   current_dir="%F{${red}} %~%{$reset_color%}"
   prompt_time="[%F{${red}}%*${reset_color%}]"
-  prompt_cursor="zsh▸%{$reset_color%}"
+  prompt_cursor="zsh▸▶%{$reset_color%}"
 else
   user_host="${hostname_color}%n@%m%{$reset_color%}"
   current_dir="%F{${blue}} %~%{$reset_color%}"
