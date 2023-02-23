@@ -36,6 +36,9 @@ export TERM=xterm-256color
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
+# see https://blog.packagecloud.io/set-environment-variable-save-thousands-of-system-calls/
+export TZ=":/etc/localtime"
+
 # vi mode
 zmodload zsh/terminfo
 bindkey -v
