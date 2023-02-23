@@ -7,8 +7,10 @@ Plug 'chrisbra/vim-diff-enhanced'
 Plug 'embear/vim-localvimrc'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/vim-clang-format'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'EdenEast/nightfox.nvim'
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
@@ -316,6 +318,8 @@ nnoremap <leader>fb :Buffers<CR>
 autocmd FileType org nmap <buffer> <silent> <leader>O <Plug>OrgNewHeadingAboveNormal
 autocmd FileType org nmap <buffer> <silent> <leader>o <Plug>OrgNewHeadingBelowAfterChildrenNormal
 
+command Nv NvimTreeOpen
+
 " Neovim section
 lua << EOF
 require'nvim-treesitter.configs'.setup {
@@ -500,6 +504,27 @@ require('orgmode').setup({
 })
 
 require('gitsigns').setup()
+
+-- empty setup using defaults
+require("nvim-tree").setup()
+require("nvim-tree").setup({
+ view = {
+   mappings = {
+     list = {
+       { key = "o", action = "edit_no_picker" },
+     },
+   },
+ }
+})
+
+require'nvim-web-devicons'.setup {
+ -- globally enable different highlight colors per icon (default to true)
+ -- if set to false all icons will have the default icon's color
+ color_icons = true;
+ -- globally enable default icons (default to false)
+ -- will get overriden by `get_icons` option
+ default = true;
+}
 
 -- require('feline').setup()
 -- require('feline').winbar.setup()
