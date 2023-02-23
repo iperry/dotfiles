@@ -39,6 +39,9 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'olimorris/onedarkpro.nvim'
 Plug 'folke/tokyonight.nvim'
 Plug 'lewis6991/gitsigns.nvim'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 call plug#end()
 
 " Basic settings
