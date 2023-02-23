@@ -37,7 +37,6 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 
 Plug 'olimorris/onedarkpro.nvim'
-Plug 'folke/tokyonight.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -460,16 +459,6 @@ require('lspconfig').rust_analyzer.setup{
   capabilities = capabilities,
 }
 
- require("tokyonight").setup({
-  style = "night",
-  on_colors = function(colors)
-    colors.bg = "#0c0c0c"
-    colors.fg = "#eeeeee"
-    colors.comment = "#cd8b00"
-  end
- })
-vim.cmd[[colorscheme tokyonight-night]]
-
 require('orgmode').setup_ts_grammar()
 
 -- Tree-sitter configuration
@@ -488,6 +477,20 @@ require('orgmode').setup({
 })
 
 require('gitsigns').setup()
+
+
+local palettes = {
+  duskfox = {
+    comment = "#d9b4e0",
+  },
+}
+
+require("nightfox").setup({ palettes = palettes })
+
+vim.cmd[[colorscheme duskfox]]
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
 
 -- empty setup using defaults
 require("nvim-tree").setup()
