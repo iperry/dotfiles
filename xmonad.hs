@@ -38,7 +38,6 @@ myTabTheme = theme wfarrTheme
 
 gapWidth = 15
 myLayouts = boringWindows $
-    noBorders $
     (rtall ||| tabbed' ||| Full ||| float)
   where
     tabbed' = tabbed shrinkText myTabTheme
