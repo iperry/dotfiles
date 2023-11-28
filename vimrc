@@ -531,8 +531,11 @@ require('lspconfig').rust_analyzer.setup{
   capabilities = capabilities,
 }
 
-require('gitsigns').setup()
+require('lspconfig').jedi_language_server.setup{
+  single_file_support = False
+}
 
+require('gitsigns').setup()
 
 local palettes = {
   duskfox = {
