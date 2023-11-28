@@ -21,8 +21,7 @@ Plug 'iperry/cscope_maps'
 Plug 'iperry/snippets'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-Plug 'nvim-orgmode/orgmode'
+Plug 'nvim-neorg/neorg', {'do': ':Neorg sync-parsers'}
 
 " completion
 Plug 'hrsh7th/nvim-cmp'
@@ -321,9 +320,9 @@ vnoremap <Leader>cf :ClangFormat<cr>
 nnoremap <leader>ff :FZF<CR>
 nnoremap <leader>fb :Buffers<CR>
 
-" org-mode
-autocmd FileType org nmap <buffer> <silent> <leader>O <Plug>OrgNewHeadingAboveNormal
-autocmd FileType org nmap <buffer> <silent> <leader>o <Plug>OrgNewHeadingBelowAfterChildrenNormal
+" neorg
+nnoremap <Leader>nw :Neorg workspace work<cr>
+nnoremap <Leader>nh :Neorg workspace work<cr>
 
 command! Nv NvimTreeOpen
 
@@ -357,6 +356,22 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+}
+
+require("neorg").setup {
+  -- configuration here
+  load = {
+    ["core.defaults"] = {},
+    ["core.concealer"] = {},
+    ["core.dirman"] = {
+      config = {
+        workspaces = {
+          work = "~/transwarp/notes/work",
+          home = "~/transwarp/notes/home"
+        }
+      }
+    }
+  }
 }
 
 -- Setup nvim-cmp.
@@ -477,7 +492,6 @@ local function on_attach(bufnr)
   vim.keymap.set('n', '<2-RightMouse>', api.tree.change_root_to_node, opts('CD'))
   -- END_DEFAULT_ON_ATTACH
 
-
   -- Mappings migrated from view.mappings.list
   --
   -- You will need to insert "your code goes here" for any mappings with a custom action_cb
@@ -525,23 +539,6 @@ require('lspconfig').rust_analyzer.setup{
   on_attach = on_attach,
   capabilities = capabilities,
 }
-
-require('orgmode').setup_ts_grammar()
-
--- Tree-sitter configuration
-require'nvim-treesitter.configs'.setup {
-  -- If TS highlights are not enabled at all, or disabled via `disable` prop, highlighting will fallback to default Vim syntax highlighting
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = {'org'}, -- Required for spellcheck, some LaTex highlights and code block highlights that do not have ts grammar
-  },
-  ensure_installed = {'org'}, -- Or run :TSUpdate org
-}
-
-require('orgmode').setup({
-  org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
-  org_default_notes_file = '~/Dropbox/org/refile.org',
-})
 
 require('gitsigns').setup()
 
