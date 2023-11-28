@@ -551,13 +551,6 @@ vim.opt.termguicolors = true
 
 -- empty setup using defaults
 require("nvim-tree").setup({
- view = {
-   mappings = {
-     list = {
-       { key = "o", action = "edit_no_picker" },
-     },
-   },
- },
  on_attach = on_attach
 })
 
