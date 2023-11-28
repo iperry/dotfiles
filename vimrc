@@ -325,7 +325,7 @@ nnoremap <leader>fb :Buffers<CR>
 autocmd FileType org nmap <buffer> <silent> <leader>O <Plug>OrgNewHeadingAboveNormal
 autocmd FileType org nmap <buffer> <silent> <leader>o <Plug>OrgNewHeadingBelowAfterChildrenNormal
 
-command Nv NvimTreeOpen
+command! Nv NvimTreeOpen
 
 " Neovim section
 lua << EOF
