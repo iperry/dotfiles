@@ -59,6 +59,8 @@ endif
 set backupdir=~/.config/nvim/backupdir
 set directory=~/.config/nvim/backupdir
 set undodir=~/.config/nvim/backupdir
+set backup
+set backupcopy=yes
 
 " nice big viminfo file
 set viminfo='1000,f1,:1000,/1000
