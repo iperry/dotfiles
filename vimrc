@@ -538,11 +538,10 @@ require('lspconfig').jedi_language_server.setup{
 require('gitsigns').setup()
 
 local palettes = {
-  duskfox = {
-    comment = "#d9b4e0",
+  all = {
+    bg1 = "#11111b",
   },
 }
-
 require("nightfox").setup({ palettes = palettes })
 
 vim.cmd[[colorscheme duskfox]]
