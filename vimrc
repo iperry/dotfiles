@@ -521,18 +521,9 @@ local lspconfig = require('lspconfig')
 require'lspconfig'.clangd.setup{
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd =  { 'clangd',
-           '--query-driver=/home/perry/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-*',
-  },
   root_dir = lspconfig.util.root_pattern(
           'compile_commands.json',
           'build/compile_commands.json')
---          '.clangd',
---          '.clang-tidy',
---          '.clang-format',
---          'compile_flags.txt',
---          'configure.ac',
---          '.git')
 }
 
 require('lspconfig').rust_analyzer.setup{
