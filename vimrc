@@ -21,7 +21,7 @@ Plug 'iperry/cscope_maps'
 Plug 'iperry/snippets'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-neorg/neorg', {'do': ':Neorg sync-parsers'}
+Plug 'nvim-neorg/neorg', {'do': ':Neorg sync-parsers'} | Plug 'nvim-lua/plenary.nvim'
 
 " completion
 Plug 'hrsh7th/nvim-cmp'
@@ -322,7 +322,7 @@ nnoremap <leader>fb :Buffers<CR>
 
 " neorg
 nnoremap <Leader>nw :Neorg workspace work<cr>
-nnoremap <Leader>nh :Neorg workspace work<cr>
+nnoremap <Leader>nh :Neorg workspace home<cr>
 
 command! Nv NvimTreeOpen
 
@@ -367,7 +367,7 @@ require("neorg").setup {
       config = {
         workspaces = {
           work = "~/transwarp/notes/work",
-          home = "~/transwarp/notes/home"
+          home = "~/transwarp/notes/home",
         }
       }
     }
