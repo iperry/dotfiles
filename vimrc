@@ -263,6 +263,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:airline_extensions = ['branch', 'hunks']
 let g:airline_powerline_fonts=1
 
+" whitespace
+autocmd FileType markdown EnableWhitespace
+
 " ag
 if executable('ag')
   " Highlight search terms from ag
