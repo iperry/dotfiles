@@ -23,6 +23,7 @@ import XMonad.Util.Themes
 import XMonad.Layout.Gaps
 import XMonad.Layout.Spacing
 import XMonad.Layout.SimpleFloat
+import XMonad.Layout.Tabbed
 import XMonad.Hooks.EwmhDesktops
 import Graphics.X11.ExtraTypes.XF86
 import XMonad.Hooks.FadeInactive
@@ -34,13 +35,15 @@ import qualified Data.Map        as M
 myNormalBorderColor  = "#1a1a1a"
 myFocusedBorderColor = "#33ccff"
 
-myTabTheme = theme wfarrTheme
+myTabTheme = Theme {
+  fontName = "xft:monospace:size=14"
+}
 
 gapWidth = 15
 myLayouts = boringWindows $
     (rtall ||| tabbed' ||| Full ||| float)
   where
-    tabbed' = tabbed shrinkText myTabTheme
+    tabbed' = tabbedAlways shrinkText myTabTheme
     rtall = spacing gapWidth $ gaps [(U, gapWidth),(D,gapWidth),(L,gapWidth),(R,gapWidth)] $
             configurableNavigation noNavigateBorders $ ResizableTall 1 (3/100) (1/2) []
     float = simpleFloat
