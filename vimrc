@@ -549,7 +549,7 @@ require('gitsigns').setup()
 
 local palettes = {
   all = {
-    bg1 = "#11111b",
+    bg1 = "#0e0e17",
   },
 }
 require("nightfox").setup({ palettes = palettes })
