@@ -4,4 +4,5 @@ picom -f -D 10 -r 5 &
 feh --bg-scale pics/15251.jpg --bg-scale pics/15251.jpg
 volnoti &
 xscreensaver -no-splash &
+deadd-notification-center &
 exec xmonad
