@@ -128,6 +128,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((0, xF86XK_AudioLowerVolume   ), spawn "volctl.sh down")
     , ((0, xF86XK_AudioRaiseVolume   ), spawn "volctl.sh up")
     , ((0, xF86XK_AudioMute          ), spawn "volctl.sh mute")
+    -- screenshot
+    , ((0, xK_Print          ), spawn "screenshot.sh")
     ]
     ++
 
