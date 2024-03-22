@@ -24,7 +24,8 @@ echo "installing vim-plug"
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-link_dotfile vimrc $HOME/.config/nvim/init.vim
+link_dotfile nvim/init.vim $HOME/.config/nvim/init.vim
+link_dotfile nvim/lua $HOME/.config/nvim/lua
 
 # scripts
 mkdir -p ~/bin
@@ -42,3 +43,6 @@ link_dotfile kitty.conf $HOME/.config/kitty/kitty.conf
 
 # ssh-agent
 link_dotfile ssh-agent.service $HOME/.config/systemd/user/ssh-agent.service
+
+# deadd
+link_dotfile deadd.yml $HOME/.config/deadd/deadd.yml
