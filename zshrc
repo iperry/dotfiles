@@ -37,7 +37,10 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # see https://blog.packagecloud.io/set-environment-variable-save-thousands-of-system-calls/
-export TZ=":/etc/localtime"
+#export TZ=":/etc/localtime"
+# Nevermind lol. Slack/electron doesn't know how to parse the above. Set it manually to
+# avoid it displaying timestamps in UTC.
+export TZ="America/Los_Angeles"
 
 # vi mode
 zmodload zsh/terminfo
