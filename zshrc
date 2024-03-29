@@ -306,8 +306,8 @@ alias x=extract
 alias zm='vim ~/dotfiles/zshrc; . ~/dotfiles/zshrc'
 alias zrl='. ~/.zshrc'
 alias dw='diceware --no-caps -d " " -n 5'
-alias line_wrap_on='tput rmam'
-alias line_wrap_off='tput smam'
+alias line_wrap_on='tput smam'
+alias line_wrap_off='tput rmam'
 
 # Print friendly MOTD on interactive terminals
 if [ -x "$(command -v archey3)" ] && \
