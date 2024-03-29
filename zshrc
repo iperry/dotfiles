@@ -278,9 +278,8 @@ alias ga='git add'
 alias gau='git add -u :/'
 alias gc=gci
 alias gca='git commit --amend --verbose'
-alias gcfggenrad='git config --local user.email "perry@genrad.com"'
 alias gcfghome='git config --local user.email "perry@mosi.io"'
-alias gcfgwork='git config --local user.email "perry@leaflabs.com"'
+alias gcfglyte='git config --local user.email "perry.hung@lyte.ai"'
 alias gci='git commit --verbose'
 alias gd='git diff'
 alias gdc='git diff --cached'
@@ -307,6 +306,8 @@ alias x=extract
 alias zm='vim ~/dotfiles/zshrc; . ~/dotfiles/zshrc'
 alias zrl='. ~/.zshrc'
 alias dw='diceware --no-caps -d " " -n 5'
+alias line_wrap_on='tput rmam'
+alias line_wrap_off='tput smam'
 
 # Print friendly MOTD on interactive terminals
 if [ -x "$(command -v archey3)" ] && \
