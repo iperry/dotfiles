@@ -1,55 +1,4 @@
-call plug#begin()
-" vim plugins
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-eunuch'
-Plug 'godlygeek/tabular'
-Plug 'chrisbra/vim-diff-enhanced'
-Plug 'embear/vim-localvimrc'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'rhysd/vim-clang-format'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'SirVer/ultisnips'
-Plug 'rust-lang/rust.vim'
-Plug 'jremmen/vim-ripgrep'
-Plug 'iperry/cscope_maps'
-Plug 'iperry/snippets'
-
-" nvim plugins
-Plug 'feline-nvim/feline.nvim'
-Plug 'ojroques/nvim-osc52'
-Plug 'EdenEast/nightfox.nvim'
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'nvim-tree/nvim-tree.lua'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-neorg/neorg', {'do': ':Neorg sync-parsers'} | Plug 'nvim-lua/plenary.nvim'
-
-" completion
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-
-" LSP
-Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'neovim/nvim-lspconfig'
-
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'epwalsh/obsidian.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
-Plug 'lukas-reineke/headlines.nvim'
-
-call plug#end()
-
-" Neovim section
-lua << EOF
-require('init')
-EOF
-
-" Basic settings
+" Basic viml settings
 " ==============
 setglobal fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,latin1
@@ -212,7 +161,6 @@ function! LinuxFormatting()
     setlocal softtabstop=8
     setlocal textwidth=80
     setlocal noexpandtab
-
     setlocal cindent
     setlocal formatoptions=tcqlron
     setlocal cinoptions=:0,l1,t0,g0,(0
@@ -228,7 +176,6 @@ nnoremap <F1> <Nop>
 
 " line wrap
 set textwidth=80
-
 
 " Resize buffers
 nnoremap _ :resize -1<CR>
@@ -258,29 +205,12 @@ autocmd FileType text setlocal nocindent nosmartindent indentexpr=
 " Only fold c and c++
 autocmd FileType c,cpp setlocal foldmethod=indent
 
-
 " Plugin configuration
 " ====================
 " ultisnips
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-" airline
-let g:airline_extensions = ['branch', 'hunks']
-let g:airline_powerline_fonts=1
-
-" whitespace
-autocmd FileType markdown EnableWhitespace
-
-" ag
-if executable('ag')
-  " Highlight search terms from ag
-  let g:ag_highlight=1
-
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-endif
 
 " vim-fugitive
 nnoremap <Leader>gs :Gstatus<cr>
@@ -308,49 +238,7 @@ if filereadable(s:host_vimrc)
     execute 'source ' . s:host_vimrc
 endif
 
-" clang-format
-let g:clang_format#code_style = 'google'
-let g:clang_format#style_options = {
-    \ "Standard" : "C++11",
-    \ "DerivePointerAlignment" : "false",
-    \ "PointerAlignment" : "Right"}
-function! ClangFormatQML()
-  let tmpfile = tempname() . ".js"
-  execute 'write ' . tmpfile
-  execute '1,$d'
-  execute '0r !clang-format ' . tmpfile
-endfunction
-nnoremap <Leader>cq :call ClangFormatQML()<cr>
-nnoremap <Leader>cf :ClangFormat<cr>
-vnoremap <Leader>cf :ClangFormat<cr>
-
-" fzf
-" nnoremap <leader>ff :FZF<CR>
-" nnoremap <leader>fb :Buffers<CR>
-" command! -bang FzxFiles call fzf#run(fzf#wrap({ 'source': 'fd --no-ignore-vcs .', 'sink': 'e'}, <bang>0))
-" exec "nmap <silent> <leader>G :FzxFiles<CR>"
-
-" Telescope
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>tt <cmd>Telescope commands<cr>
-
-" Obsidian
-vnoremap <leader>ol <cmd>ObsidianLinkNew<cr>
-nnoremap <leader>og <cmd>ObsidianSearch<cr>
-nnoremap <leader>os <cmd>ObsidianQuickSwitch<cr>
-nnoremap <leader>oo <cmd>ObsidianOpen<cr>
-nnoremap <Leader>nw :ObsidianWorkspace work<cr>
-nnoremap <Leader>nh :ObsidianWorkspace personal<cr>
-
-
-command! Nv NvimTreeOpen
-
-" md preview
-let g:mkdp_theme = 'dark'
-
-" hi @markup.raw.block guibg=#222222
-" hi @markup.raw guibg=#222222
-
+" Neovim section
+lua << EOF
+require('init')
+EOF
