@@ -3,11 +3,11 @@ Config {
     font = "Berkeley Mono Nerd Font 14",
     bgColor = "#101010",
     fgColor = "white",
-    position = Static { xpos = 0 , ypos = 0, width = 3700, height = 20},
+    position = Static { xpos = 0 , ypos = 0, width = 3650, height = 40},
     commands = [
         Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10,
         Run Com "ip.sh" [] "ip" 60,
-        Run Network "enp2s0" [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
+        Run Network "enp1s0f0" [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
                            , "--Low"      , "1000"       -- units: B/s
                            , "--High"     , "5000"       -- units: B/s
                            , "--low"      , "darkgreen"
@@ -19,5 +19,5 @@ Config {
         Run XMonadLog],
     sepChar = "%",
     alignSep = "}{",
-    template = " %XMonadLog%}{<fc=white>IP: %ip% %cpu%</fc> <fc=white>%memory% %enp2s0%</fc> <fc=#ee9a00>%date%</fc>"
+    template = " %XMonadLog%}{<fc=white>IP: %ip% %cpu%</fc> <fc=white>%memory% %enp1s0f0%</fc> <fc=#ee9a00>%date%</fc>"
 }
