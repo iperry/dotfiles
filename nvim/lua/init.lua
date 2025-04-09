@@ -13,6 +13,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
+-- Enable project-specific configuration files
+vim.o.exrc = true
+
+-- Enable security for local .nvim.lua files (recommended)
+vim.o.secure = true
+
 -- osc52
 vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, {expr = true})
 vim.keymap.set('n', '<leader>cc', '<leader>c_', {remap = true})
