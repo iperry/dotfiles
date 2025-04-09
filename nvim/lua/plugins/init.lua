@@ -1,3 +1,4 @@
+-- Lazygit
 return {
   -- make this load before all other plugins
   { "EdenEast/nightfox.nvim",
@@ -10,9 +11,9 @@ return {
     end
   },
   { "tpope/vim-fugitive" },
+  { "chrisbra/vim-diff-enhanced" },
   { "godlygeek/tabular" },
   { "duane9/nvim-rg" },
-  { "lewis6991/gitsigns.nvim" },
-  { "nvim-telescope/telescope.nvim" },
   { "ojroques/nvim-osc52" },
+  { "lambdalisue/vim-suda" },
 }
