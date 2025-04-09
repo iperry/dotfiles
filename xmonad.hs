@@ -123,7 +123,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- Quit xmonad
     , ((modMask .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
     -- Restart xmonad
-    , ((modMask              , xK_q     ), restart "xmonad" True)
+    , ((modMask .|. controlMask, xK_q     ), restart "xmonad" True)
     -- Lock xscreensaver
     , ((modMask .|. controlMask, xK_x     ), spawn "xscreensaver-command -lock")
 
