@@ -107,9 +107,6 @@ set nojoinspaces
 " Make the preview window a bit bigger
 set previewheight=20
 
-" Clipboard settings
-set clipboard=unnamedplus
-
 " For concealer plugins
 set conceallevel=2
 
