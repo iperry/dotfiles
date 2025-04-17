@@ -18,6 +18,17 @@ return { "nvim-telescope/telescope.nvim",
           ["<C-k>"] = 'move_selection_previous',
         },
       },
+      path_display = {
+        "shorten"
+      },
+    },
+    pickers = {
+      -- note: remove the 'builtin.' prefix.
+      ["lsp_references"] = { wrap_results = true, },
+      ["lsp_definitions"] = { wrap_results = true, },
+      ["diagnostics"] = { wrap_results = true, },
+      ["find_files"] = { wrap_results = true, shorten_path = true},
+      ["buffers"] = { sort_mru = true, ignore_current_buffer = true },
     }
   },
   config = function(_, opts)
