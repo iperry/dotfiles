@@ -367,9 +367,8 @@ export MAKEFLAGS=-j${NPROCS}
 # googletest
 export GTEST_COLOR=1
 
-# SSH agent
-# https://wiki.archlinux.org/title/SSH_keys#Start_ssh-agent_with_systemd_user
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+# 1password ssh agent
+export SSH_AUTH_SOCK=~/.1password/agent.sock
 
 # prepend path
 path=("$HOME/.local/bin" $path)
