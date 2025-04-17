@@ -274,40 +274,43 @@ export LS_OPTIONS='--color=auto'
 # aliases
 alias cgb='cargo build'
 alias cgr='cargo run'
+alias dw='diceware --no-caps -d " " -n 5'
 alias ga='git add'
 alias gau='git add -u :/'
-alias gc=gci
 alias gca='git commit --amend --verbose'
 alias gcfghome='git config --local user.email "perry@mosi.io"'
 alias gcfglyte='git config --local user.email "perry.hung@lyte.ai"'
+alias gc=gci
 alias gci='git commit --verbose'
-alias gd='git diff'
 alias gdc='git diff --cached'
+alias gd='git diff'
 alias gfx='git fixup'
-alias gl='git log --stat'
 alias glg='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit --date=relative'
 alias glgh='glg | head'
+alias gl='git log --stat'
 alias glo='git log --oneline'
 alias glp='git log --stat -p'
 alias god='cd `cat ~/.savedir`'
-alias gs='git status'
 alias gsa='git stash apply'
+alias gs='git status'
 alias gst='git stash'
+alias icat='kitten icat'
+alias line_wrap_off='tput rmam'
+alias line_wrap_on='tput smam'
 alias ll='ls -l'
 alias ls='ls --color=auto'
 alias nj=ninja
+alias rg='rg --smart-case'
 alias rm='rm -i'
 alias saved='echo `pwd` > ~/.savedir'
 alias showd='cat ~/.savedir'
-alias vi=vim
 alias vim=nvim
+alias vi=vim
 alias vm='vim $MYVIMRC'
 alias x=extract
+alias yay='paru --bottomup --needed'
 alias zm='vim ~/dotfiles/zshrc; . ~/dotfiles/zshrc'
 alias zrl='. ~/.zshrc'
-alias dw='diceware --no-caps -d " " -n 5'
-alias line_wrap_on='tput smam'
-alias line_wrap_off='tput rmam'
 
 # Print friendly MOTD on interactive terminals
 if [ -x "$(command -v archey3)" ] && \
