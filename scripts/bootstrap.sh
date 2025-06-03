@@ -19,11 +19,6 @@ link_dotfile gitconfig $HOME/.gitconfig
 link_dotfile zshrc $HOME/.zshrc
 link_dotfile zsh $HOME/.zsh
 
-# # neovim
-echo "installing vim-plug"
-curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 link_dotfile nvim/init.vim $HOME/.config/nvim/init.vim
 link_dotfile nvim/lua $HOME/.config/nvim/lua
 
