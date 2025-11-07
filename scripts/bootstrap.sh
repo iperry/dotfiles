@@ -26,6 +26,7 @@ link_dotfile nvim/lua $HOME/.config/nvim/lua
 mkdir -p ~/bin
 
 link_dotfile xinitrc $HOME/.xinitrc
+link_dotfile xinitrc $HOME/.xsession
 mkdir -p ~/.xmonad/
 link_dotfile xmobarrc $HOME/.xmobarrc
 link_dotfile xmonad.hs $HOME/.xmonad/xmonad.hs
