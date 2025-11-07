@@ -16,6 +16,9 @@
    co = checkout
    dp = diff --patience
 
+[diff]
+   tool = meld
+
 [merge]
    tool = meld
 
