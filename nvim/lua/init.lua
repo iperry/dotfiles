@@ -51,3 +51,7 @@ vim.keymap.set('n', '<leader>fx', vim.lsp.buf.code_action)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
+
+-- Python
+vim.lsp.enable('basedpyright')
+vim.lsp.enable('ruff')
