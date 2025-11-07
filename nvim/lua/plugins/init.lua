@@ -16,4 +16,5 @@ return {
   { "duane9/nvim-rg" },
   { "ojroques/nvim-osc52" },
   { "lambdalisue/vim-suda" },
+  { "neovim/nvim-lspconfig" },
 }
