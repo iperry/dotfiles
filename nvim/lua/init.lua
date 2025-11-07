@@ -31,3 +31,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.opt_local.conceallevel = 0
   end,
 })
+-- cindent > smartindent
+vim.o.smartindent = false
+vim.o.cindent = false
+-- basic indentation copying
+vim.o.autoindent = true  -- optional: keep this if you still want consistent indent on new lines

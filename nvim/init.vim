@@ -77,14 +77,6 @@ set backspace=indent,eol,start
 " status line always
 set laststatus=2
 
-" indent options
-set autoindent
-set smartindent
-set cindent
-set cinoptions=:0,p0,t0,(0
-set cinwords=if,else,while,do,for,switch,case
-set formatoptions=tcqr
-
 set listchars=tab:▸\ ,eol:¬
 set fillchars=fold:\ ,diff:\ 
 
