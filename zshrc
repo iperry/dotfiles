@@ -6,6 +6,8 @@
 source ~/.zsh/bashmarks.sh
 source ~/.zsh/extract.plugin.zsh
 source ~/.zsh/zsh-history-substring-search.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # basic settings
 HISTFILE=~/.histfile
@@ -52,6 +54,7 @@ bindkey '^w' backward-kill-word
 bindkey '^K' kill-line
 bindkey '^r' history-incremental-search-backward
 bindkey '^b' backward-word
+bindkey '^o' forward-word
 bindkey "^?" backward-delete-char
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
