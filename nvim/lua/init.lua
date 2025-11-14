@@ -58,3 +58,9 @@ vim.lsp.enable('ruff')
 
 -- verilog
 vim.lsp.enable('verible')
+
+vim.lsp.config('jsonls', {
+  -- Disable jsonls formatting, let null-ls handle it
+	init_options = { provideFormatter = false },
+})
+vim.lsp.enable("jsonls")
