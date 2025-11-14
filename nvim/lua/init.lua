@@ -55,3 +55,6 @@ vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
 -- Python
 vim.lsp.enable('basedpyright')
 vim.lsp.enable('ruff')
+
+-- verilog
+vim.lsp.enable('verible')
