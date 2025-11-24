@@ -5,6 +5,8 @@ feh --bg-scale pics/15251.jpg --bg-scale pics/15251.jpg
 volnoti &
 xscreensaver -no-splash &
 deadd-notification-center &
+1password &
+flameshot &
 # hax
 rm -f ~/.xmonad/xmonad-x86_64-linux
 exec xmonad
