@@ -57,6 +57,25 @@ vim.lsp.enable('basedpyright')
 vim.lsp.enable('ruff')
 
 -- verilog
+vim.lsp.config('verible', {
+  cmd = { 'verible-verilog-ls',
+    '--assignment_statement_alignment=align',
+    '--case_items_alignment=align',
+    '--class_member_variable_alignment=align',
+    '--distribution_items_alignment=align',
+    '--enum_assignment_statement_alignment=align',
+    '--formal_parameters_alignment=align',
+    '--module_net_variable_alignment=align',
+    '--named_parameter_alignment=align',
+    '--named_port_alignment=align',
+    '--port_declarations_alignment=align',
+    '--struct_union_members_alignment=align',
+    '--align_across_blank_lines=true',
+    '--compact_packed_dimensions=true',
+  },
+  filetypes = { 'systemverilog', 'verilog' },
+  root_markers = { '.git' },
+})
 vim.lsp.enable('verible')
 
 vim.lsp.config('jsonls', {
@@ -64,3 +83,4 @@ vim.lsp.config('jsonls', {
 	init_options = { provideFormatter = false },
 })
 vim.lsp.enable("jsonls")
+
