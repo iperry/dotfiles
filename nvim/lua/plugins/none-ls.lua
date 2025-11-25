@@ -5,7 +5,7 @@ return {
     none_ls.setup({
       sources = {
         none_ls.builtins.formatting.prettier.with({
-          filetypes = { "markdown" },
+          filetypes = { "markdown", "yaml" },
           extra_args = { "--prose-wrap", "always" },
         }),
         -- Prettier for JSON
