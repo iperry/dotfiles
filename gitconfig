@@ -7,9 +7,13 @@
    pager = true
 
 [core]
-   pager = less -FRSX
    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
    autocrlf = input
+   pager = delta
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection
 
 [alias]
    ci = commit -v
@@ -40,3 +44,4 @@
 
 [init]
 	defaultBranch = main
+
