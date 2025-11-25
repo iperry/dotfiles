@@ -20,8 +20,8 @@ vim.o.exrc = true
 vim.o.secure = true
 
 -- osc52
-vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, {expr = true})
-vim.keymap.set('n', '<leader>cc', '<leader>c_', {remap = true})
+vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, { expr = true })
+vim.keymap.set('n', '<leader>cc', '<leader>c_', { remap = true })
 vim.keymap.set('v', '<leader>c', require('osc52').copy_visual)
 
 -- Fix conceallevel for json files
@@ -35,7 +35,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 vim.o.smartindent = false
 vim.o.cindent = false
 -- basic indentation copying
-vim.o.autoindent = true  -- optional: keep this if you still want consistent indent on new lines
+vim.o.autoindent = true -- optional: keep this if you still want consistent indent on new lines
 
 -- LSP
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
@@ -80,7 +80,9 @@ vim.lsp.enable('verible')
 
 vim.lsp.config('jsonls', {
   -- Disable jsonls formatting, let null-ls handle it
-	init_options = { provideFormatter = false },
+  init_options = { provideFormatter = false },
 })
 vim.lsp.enable("jsonls")
 
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("rust_analyzer")
