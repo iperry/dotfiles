@@ -227,6 +227,9 @@ if filereadable(s:host_vimrc)
     execute 'source ' . s:host_vimrc
 endif
 
+" Override coq/verilog detection
+let g:filetype_v="verilog"
+
 " Neovim section
 lua << EOF
 require('init')
