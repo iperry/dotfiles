@@ -1,7 +1,8 @@
 -- Lazygit
 return {
   -- make this load before all other plugins
-  { "EdenEast/nightfox.nvim",
+  {
+    "EdenEast/nightfox.nvim",
     lazy = false,
     priority = 1000,
     opts = { palettes = { all = { bg1 = "#0e0e17", } } },
@@ -17,4 +18,10 @@ return {
   { "ojroques/nvim-osc52" },
   { "lambdalisue/vim-suda" },
   { "neovim/nvim-lspconfig" },
+  {
+    "junegunn/vim-easy-align",
+    keys = {
+      { "ga", "<Plug>(EasyAlign)", mode = { "n", "x" }, desc = "EasyAlign" },
+    }
+  },
 }
