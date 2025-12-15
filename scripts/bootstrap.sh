@@ -42,3 +42,6 @@ link_dotfile ssh-agent.service $HOME/.config/systemd/user/ssh-agent.service
 
 # deadd
 link_dotfile deadd.yml $HOME/.config/deadd/deadd.yml
+
+# ghostty
+link_dotfile ghostty/config $HOME/.config/ghostty/config
