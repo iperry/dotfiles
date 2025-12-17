@@ -19,6 +19,12 @@ return {
   { "lambdalisue/vim-suda" },
   { "neovim/nvim-lspconfig" },
   {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+    end
+  },
+  {
     "junegunn/vim-easy-align",
     init = function()
       vim.g.easy_align_delimiters = {
