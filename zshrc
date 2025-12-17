@@ -279,7 +279,6 @@ alias ga='git add'
 alias gau='git add -u :/'
 alias gca='git commit --amend --verbose'
 alias gcfghome='git config --local user.email "perry@mosi.io"'
-alias gcfglyte='git config --local user.email "perry.hung@lyte.ai"'
 alias gc=gci
 alias gci='git commit --verbose'
 alias gdc='git diff --cached'
@@ -331,13 +330,6 @@ export CCACHE_SLOPPINESS=pch_defines,time_macros
 # Java xmonad shit
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-# rtags
-HAVE_RTAGS=`which rc`
-if [[ -e $HAVE_RTAGS ]]
-then
-  export USE_RTAGS=1
-fi
-
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -374,15 +366,19 @@ else
     export SSH_AUTH_SOCK=~/.1password/agent.sock
 fi
 
-# prepend path
-path=("$HOME/.local/bin" $path)
+# NPM local install path
+export NPM_CONFIG_PREFIX="~/.npm-global/"
+
+# prepend
 path=("$HOME/bin" $path)
+path+=("$HOME/.cargo/bin")
+path+=("$HOME/.npm-global/bin")
+path=("$HOME/.local/bin" $path)
 
 # append
-path+=("/opt/Xilinx/Vivado/2020.1/bin")
-path+=("/home/perry/opt/tools/common/petalinux/bin")
-path+=("/opt/cuda/bin")
-path+=("$HOME/.cargo/bin")
+alias vv='vivado -log /tmp/vv.log -jou /tmp/vv.jou'
+path+=("$HOME/opt/Xilinx/2025.2/Vivado/bin")
+path+=("$HOME/opt/Xilinx/2025.2/Vitis/bin")
 
 # remove duplicates
 typeset -U PATH
