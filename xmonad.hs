@@ -159,7 +159,7 @@ myManageHook = composeAll [ resource =? "portal"         --> doFloat,
 
 myConfig = def
     { borderWidth        = 5
-    , terminal           = "kitty"
+    , terminal           = "ghostty"
     , normalBorderColor  = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
     , modMask = mod4Mask
