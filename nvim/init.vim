@@ -230,6 +230,8 @@ endif
 " Override coq/verilog detection
 let g:filetype_v="verilog"
 
+" make markdown link
+vnoremap <leader>ml c[](<C-r>")<Esc>F[a
 
 " Neovim section
 lua << EOF
