@@ -15,24 +15,25 @@ local note_format = function(title)
   return tostring(os.time()) .. "-" .. suffix
 end
 
-return { "epwalsh/obsidian.nvim",
+return { "obsidian-nvim/obsidian.nvim",
   lazy = false,
   ft = "markdown",
   dependencies = { "nvim-lua/plenary.nvim", },
   opts = {
+    legacy_commands = false,
     workspaces = {
-      { name = "notes", path = "~/syncthing/notes/", }
+      { name = "notes", path = "~/sync/notes/", }
     },
     daily_notes = { folder = "dailies" },
     note_id_func = note_format,
   },
   keys = {
-    { "<leader>ol", "<cmd>ObsidianLinkNew<cr>", {v, n} },
-    { "<leader>og", "<cmd>ObsidianSearch<cr>" },
-    { "<leader>os", "<cmd>ObsidianQuickSwitch<cr>" },
-    { "<leader>oo", "<cmd>ObsidianOpen<cr>" },
-    { "<leader>ow", "<cmd>ObsidianWorkspace<cr>" },
-    { "<leader>ot", "<cmd>ObsidianToday<cr>" },
-    { "<leader>oT", "<cmd>ObsidianTomorrow<cr>" },
+    { "<leader>on", "<cmd>Obsidian new<cr>", {v, n} },
+    { "<leader>os", "<cmd>Obsidian search<cr>" },
+    { "<leader>oq", "<cmd>Obsidian quick_switch<cr>" },
+    { "<leader>oo", "<cmd>Obsidian open<cr>" },
+    { "<leader>ow", "<cmd>Obsidian workspace<cr>" },
+    { "<leader>ot", "<cmd>Obsidian today<cr>" },
+    { "<leader>oT", "<cmd>Obsidian tomorrow<cr>" },
   },
 }
