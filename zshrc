@@ -249,17 +249,14 @@ add-zsh-hook precmd _async_git_stat_update
 # Generate a color for user_host based on the hostname
 source ~/.zsh/zsh-hostname-color.zsh
 
-if [ ! -z ${PRODUCTION} ]; then
-  user_host="%F{${red}}[PRODUCTION]%n@%m%{$reset_color%}"
-  current_dir="%F{${red}} %~%{$reset_color%}"
-  prompt_time="[%F{${red}}%*${reset_color%}]"
-  prompt_cursor="zsh▸▶%{$reset_color%}"
-else
-  user_host="${hostname_color}%n@%m%{$reset_color%}"
-  current_dir="%F{${blue}} %~%{$reset_color%}"
-  prompt_time="[%F{${yellow}}%*${reset_color%}]"
-  prompt_cursor="zsh▸%{$reset_color%}"
+if [[ -n "$SSH_CONNECTION" ]]; then
+  remote_indicator="%F{${red}}[REMOTE]%{$reset_color%}"
 fi
+
+user_host="${remote_indicator}${hostname_color}%n@%m%{$reset_color%}"
+current_dir="%F{${blue}} %~%{$reset_color%}"
+prompt_time="[%F{${yellow}}%*${reset_color%}]"
+prompt_cursor="zsh▸%{$reset_color%}"
 
 PROMPT_BASE='${prompt_time} ${user_host} ${current_dir} ${git_info}
 $(vi_mode_prompt) '
