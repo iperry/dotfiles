@@ -20,8 +20,17 @@ return {
   { "neovim/nvim-lspconfig" },
   {
     "junegunn/vim-easy-align",
+    init = function()
+      vim.g.easy_align_delimiters = {
+        ["\\"] = { pattern = "\\\\$" },
+      }
+    end,
     keys = {
-      { "ga", "<Plug>(EasyAlign)", mode = { "n", "x" }, desc = "EasyAlign" },
+      { "ga",          "<Plug>(EasyAlign)",          mode = { "n", "x" }, desc = "EasyAlign" },
+      { "<leader>a|",  "<Plug>(EasyAlign)ip*|",      mode = { "n" },      desc = "Align on |" },
+      { "<leader>a|",  ":EasyAlign *|<CR>",          mode = { "v" },      desc = "Align on |" },
+      { "<leader>a\\", "<Plug>(EasyAlign)ip*\\<CR>", mode = { "n" },      desc = "Align on \\" },
+      { "<leader>a\\", ":EasyAlign *\\<CR>",         mode = { "x" },      desc = "Align on \\" },
     }
   },
 }

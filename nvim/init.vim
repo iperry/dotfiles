@@ -230,9 +230,6 @@ endif
 " Override coq/verilog detection
 let g:filetype_v="verilog"
 
-let g:easy_align_delimiters = {
-\ '\': { 'pattern': '\\$' },
-\ }
 
 " Neovim section
 lua << EOF
