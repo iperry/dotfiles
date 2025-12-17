@@ -370,8 +370,12 @@ export MAKEFLAGS=-j${NPROCS}
 # googletest
 export GTEST_COLOR=1
 
-# 1password ssh agent
-export SSH_AUTH_SOCK=~/.1password/agent.sock
+# ssh agent
+if [[ -n "$SSH_CONNECTION" ]]; then
+    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+else
+    export SSH_AUTH_SOCK=~/.1password/agent.sock
+fi
 
 # prepend path
 path=("$HOME/.local/bin" $path)
