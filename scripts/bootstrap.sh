@@ -45,3 +45,6 @@ link_dotfile deadd.yml $HOME/.config/deadd/deadd.yml
 
 # ghostty
 link_dotfile ghostty/config $HOME/.config/ghostty/config
+
+link_dotfile niri/config.kdl $HOME/.config/niri/config.kdl
+link_dotfile waybar $HOME/.config/waybar
