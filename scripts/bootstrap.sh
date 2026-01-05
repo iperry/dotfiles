@@ -48,3 +48,6 @@ link_dotfile ghostty/config $HOME/.config/ghostty/config
 
 link_dotfile niri/config.kdl $HOME/.config/niri/config.kdl
 link_dotfile waybar $HOME/.config/waybar
+
+link_dotfile scripts/spotlight.py $HOME/bin/spotlight.py
+link_dotfile scripts/sway-spotlight.py $HOME/bin/sway-spotlight.py
