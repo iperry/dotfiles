@@ -1,13 +1,8 @@
-# Set this on servers to add [PRODUCTION] to prompt
-# PRODUCTION=1
-
-# disable antigen-hs by default, use basic set of plugins
-# source ~/.zsh/antigen-hs/init.zsh
 source ~/.zsh/bashmarks.sh
 source ~/.zsh/extract.plugin.zsh
 source ~/.zsh/zsh-history-substring-search.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions.zsh
 
 # basic settings
 HISTFILE=~/.histfile
