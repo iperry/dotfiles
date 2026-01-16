@@ -3,6 +3,8 @@ source ~/.zsh/extract.plugin.zsh
 source ~/.zsh/zsh-history-substring-search.zsh
 source ~/.zsh/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autosuggestions.zsh
+source ~/.zsh/fzf-key-bindings.zsh
+source ~/.zsh/fzf-completion.zsh
 
 # basic settings
 HISTFILE=~/.histfile
@@ -47,7 +49,7 @@ bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^w' backward-kill-word
 bindkey '^K' kill-line
-bindkey '^r' history-incremental-search-backward
+bindkey '^R' fzf-history-widget
 bindkey '^b' backward-word
 bindkey '^o' forward-word
 bindkey "^?" backward-delete-char
@@ -327,7 +329,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files'
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # rust
 alias cgb='cargo build'
