@@ -6,7 +6,7 @@ link_dotfile () {
   d="$(dirname $2)"
   set -x
   mkdir -p $d
-  ln -sf $src $target
+  ln -sfn $src $target
   set +x
 }
 
