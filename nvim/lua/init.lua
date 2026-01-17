@@ -80,6 +80,8 @@ vim.lsp.config('verible', {
     '--struct_union_members_alignment=align',
     '--align_across_blank_lines=true',
     '--compact_packed_dimensions=true',
+    '--compact_unpacked_dimensions=true',
+    '--case_items_exclude_default_from_alignment=true'
   },
   filetypes = { 'systemverilog', 'verilog' },
   root_markers = { '.git' },
