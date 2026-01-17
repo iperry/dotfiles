@@ -19,10 +19,18 @@ vim.o.exrc = true
 -- Enable security for local .nvim.lua files (recommended)
 vim.o.secure = true
 
--- osc52
-vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, { expr = true })
-vim.keymap.set('n', '<leader>cc', '<leader>c_', { remap = true })
-vim.keymap.set('v', '<leader>c', require('osc52').copy_visual)
+-- always yank to osc52
+vim.g.clipboard = {
+  name = 'OSC 52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+  },
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+  },
+}
 
 -- Fix conceallevel for json files
 vim.api.nvim_create_autocmd({ "FileType" }, {
