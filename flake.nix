@@ -23,7 +23,10 @@
             nixd
             nixfmt
             nodePackages.prettier
+            nodejs
             ripgrep
+            rustup
+            uv
           ];
         };
       }
