@@ -18,6 +18,7 @@ return {
             "--print-width", "80",       -- optional, wrap lines at 80 chars
           },
         }),
+        none_ls.builtins.formatting.nixfmt,
       },
     })
   end,

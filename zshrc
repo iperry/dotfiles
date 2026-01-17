@@ -6,6 +6,11 @@ source ~/.zsh/zsh-autosuggestions.zsh
 source ~/.zsh/fzf-key-bindings.zsh
 source ~/.zsh/fzf-completion.zsh
 
+# Nix
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
 # basic settings
 HISTFILE=~/.histfile
 HISTSIZE=10000
