@@ -16,7 +16,6 @@ local note_format = function(title)
 end
 
 return { "obsidian-nvim/obsidian.nvim",
-  lazy = false,
   ft = "markdown",
   dependencies = { "nvim-lua/plenary.nvim", },
   opts = {
