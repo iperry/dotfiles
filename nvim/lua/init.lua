@@ -32,6 +32,11 @@ vim.g.clipboard = {
   },
 }
 
+-- OSC52 copy bindings
+vim.keymap.set('n', '<leader>c', '"+y', { desc = 'Copy to clipboard' })
+vim.keymap.set('n', '<leader>cc', '"+yy', { desc = 'Copy line to clipboard' })
+vim.keymap.set('v', '<leader>c', '"+y', { desc = 'Copy selection to clipboard' })
+
 -- Fix conceallevel for json files
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "json", "jsonc", "json5" },
