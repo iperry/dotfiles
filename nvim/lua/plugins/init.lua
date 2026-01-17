@@ -12,6 +12,7 @@ return {
     end
   },
   { "tpope/vim-fugitive" },
+  { "tpope/vim-eunuch" },
   { "chrisbra/vim-diff-enhanced" },
   { "godlygeek/tabular" },
   { "duane9/nvim-rg" },
