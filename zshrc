@@ -253,6 +253,27 @@ source ~/.zsh/zsh-hostname-color.zsh
 
 if [[ -n "$SSH_CONNECTION" ]]; then
   remote_indicator="%F{${red}}[REMOTE]%{$reset_color%}"
+  # Derive a deterministic dark background color from hostname
+  local host_hash=$(printf '%s' "$HOST" | cksum | cut -d' ' -f1)
+  local hue=$(( host_hash % 360 ))
+  # HSV to RGB: S≈70%, V≈16% — dark enough for readability, full hue range
+  local V=42 S=179
+  local hi=$(( hue / 60 % 6 ))
+  local f=$(( hue % 60 ))
+  local p=$(( V * (255 - S) / 255 ))
+  local q=$(( V * (255 - S * f / 60) / 255 ))
+  local t=$(( V * (255 - S * (60 - f) / 60) / 255 ))
+  local r g b
+  case $hi in
+    0) r=$V; g=$t; b=$p ;;
+    1) r=$q; g=$V; b=$p ;;
+    2) r=$p; g=$V; b=$t ;;
+    3) r=$p; g=$q; b=$V ;;
+    4) r=$t; g=$p; b=$V ;;
+    5) r=$V; g=$p; b=$q ;;
+  esac
+  printf '\033]11;#%02x%02x%02x\007' $r $g $b
+  trap "printf '\033]111\007'" EXIT
 fi
 
 user_host="${remote_indicator}${hostname_color}%n@%m%{$reset_color%}"
