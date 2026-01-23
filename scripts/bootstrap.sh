@@ -51,6 +51,7 @@ link_dotfile waybar $HOME/.config/waybar
 
 link_dotfile scripts/spotlight.py $HOME/bin/spotlight.py
 link_dotfile scripts/sway-spotlight.py $HOME/bin/sway-spotlight.py
+link_dotfile scripts/spotlight-bg.py $HOME/bin/spotlight-bg.py
 
-# nix
 link_dotfile nix/nix.conf $HOME/.config/nix/nix.conf
+link_dotfile hypr/hyprlock.conf $HOME/.config/hypr/hyprlock.conf
