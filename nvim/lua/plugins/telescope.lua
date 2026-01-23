@@ -19,24 +19,30 @@ return { "nvim-telescope/telescope.nvim",
         },
       },
       path_display = {
-        "shorten"
+        "smart", "filename_first"
       },
+      dynamic_preview_title = true,
     },
     pickers = {
       -- note: remove the 'builtin.' prefix.
-      ["lsp_references"] = { wrap_results = true, },
-      ["lsp_definitions"] = { wrap_results = true, },
-      ["diagnostics"] = { wrap_results = true, },
-      ["find_files"] = { wrap_results = true, shorten_path = true},
+--      ["lsp_references"] = { wrap_results = true, },
+--      ["lsp_definitions"] = { wrap_results = true, },
+--      ["diagnostics"] = { wrap_results = true, },
+--      ["find_files"] = { wrap_results = true },
       ["buffers"] = { sort_mru = true, ignore_current_buffer = true },
     }
   },
   config = function(_, opts)
     require('telescope').setup(opts)
+    require("telescope").load_extension("fzf")
 
     local builtin = require("telescope.builtin")
-    vim.keymap.set('n', '<leader>ff', builtin.find_files)
-    vim.keymap.set('n', '<leader>fg', builtin.live_grep)
+    vim.keymap.set('n', '<leader>ff', function()
+      builtin.find_files({ search_dirs = vim.g.my_fzf_dirs })
+    end)
+    vim.keymap.set('n', '<leader>rg', function()
+      builtin.live_grep({ search_dirs = vim.g.my_fzf_dirs })
+    end)
     vim.keymap.set('n', '<leader>fb', builtin.buffers)
     vim.keymap.set('n', '<leader>fh', builtin.help_tags)
     vim.keymap.set('n', '<leader>tt', builtin.commands)

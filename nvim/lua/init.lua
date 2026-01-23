@@ -101,6 +101,7 @@ vim.lsp.enable("jsonls")
 
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("clangd")
 
 -- Nix
 vim.lsp.enable("nixd")
