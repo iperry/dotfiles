@@ -16,6 +16,7 @@
         packages.default = pkgs.buildEnv {
           name = "tools";
           paths = with pkgs; [
+            awscli2
             delta
             fd
             fzf
