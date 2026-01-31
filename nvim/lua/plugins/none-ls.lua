@@ -2,6 +2,19 @@ return {
   "nvimtools/none-ls.nvim",
   config = function()
     local none_ls = require("null-ls")
+    local h = require("null-ls.helpers")
+
+    local tclfmt = {
+      name = "tclfmt",
+      method = none_ls.methods.FORMATTING,
+      filetypes = { "tcl" },
+      generator = h.formatter_factory({
+        command = "tclfmt",
+        args = { "-" },
+        to_stdin = true,
+      }),
+    }
+
     none_ls.setup({
       sources = {
         none_ls.builtins.formatting.prettier.with({
@@ -19,6 +32,7 @@ return {
           },
         }),
         none_ls.builtins.formatting.nixfmt,
+        tclfmt,
       },
     })
   end,
